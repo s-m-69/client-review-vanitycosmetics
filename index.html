@@ -362,6 +362,34 @@
       color:rgba(255,255,255,.55);
     }
 
+    .included-list{
+      list-style:none;
+      margin-top:2px;
+    }
+
+    .included-list li{
+      font-size:14px;
+      font-family:var(--fb);
+      font-weight:400;
+      line-height:1.75;
+      color:rgba(255,255,255,.55);
+      margin-bottom:10px;
+      padding-left:16px;
+      position:relative;
+    }
+
+    .included-list li:last-child{
+      margin-bottom:0;
+    }
+
+    .included-list li::before{
+      content:'•';
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--accent);
+    }
+
     .portal-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -441,7 +469,7 @@
       line-height:1.7;
       color:rgba(255,255,255,.45);
       margin-bottom:18px;
-      min-height:66px;
+      min-height:88px;
     }
 
     .portal-meta{
@@ -509,6 +537,10 @@
       .mc{
         padding:32px 20px 60px;
       }
+
+      .portal-desc{
+        min-height:auto;
+      }
     }
   </style>
 </head>
@@ -537,7 +569,7 @@
       <div class="cover-eyebrow">Proposal + Dual-Site Audit</div>
       <h1>One Client.<br><span>Three Documents.</span><br><em>One Review Portal.</em></h1>
       <p class="cover-sub">
-        A single access point for the proposal and both website audit deliverables, structured in the same presentation language and visual system as the documents themselves.
+        A structured review of your current digital presence, covering both websites and a forward-looking strategy for how the two can evolve together.
       </p>
     </div>
 
@@ -564,14 +596,20 @@
       <div class="card">
         <div class="card-label">Overview</div>
         <p>
-          This review portal has been designed to feel native to the existing proposal and audit documents, rather than acting as a separate landing page. The typography, palette, layout language, tags, and interface styling follow the same system already used across the proposal and both audits.
+          This review brings together a detailed assessment of both your personal brand website and clinic website, along with a strategic proposal for how the two can evolve together.
+          <br><br>
+          The goal is to strengthen trust, improve conversion, and position Vanity Cosmetic Clinic as a more premium, credible, and high-performing digital presence.
         </p>
       </div>
+
       <div class="card">
         <div class="card-label">Included</div>
-        <p>
-          Proposal document, personal website audit, and clinic website audit. Each opens as an independent page while staying inside the same branded review environment.
-        </p>
+        <ul class="included-list">
+          <li>A strategic proposal outlining direction, opportunity, and the larger path forward</li>
+          <li>A detailed audit of your personal brand website</li>
+          <li>A detailed audit of your clinic website</li>
+          <li>Each document can be reviewed independently, or together as part of one cohesive strategy</li>
+        </ul>
       </div>
     </div>
 
@@ -583,14 +621,14 @@
         </div>
         <div class="portal-title">Strategic <span>Proposal</span></div>
         <p class="portal-desc">
-          Primary proposal document covering the strategic partnership, website direction, and broader opportunity framing.
+          A clear direction on how both platforms can be aligned into a stronger, more scalable digital system across positioning, structure, and growth.
         </p>
         <div class="portal-meta">
           <span class="portal-pill">Strategy</span>
           <span class="portal-pill">Scope</span>
           <span class="portal-pill">Investment</span>
         </div>
-        <div class="portal-cta">Open document</div>
+        <div class="portal-cta">Review proposal</div>
       </a>
 
       <a class="portal-card" href="./audit-1/">
@@ -600,14 +638,14 @@
         </div>
         <div class="portal-title">Personal Site <span>Audit</span></div>
         <p class="portal-desc">
-          Review of drsantoshbhatia.com with focus across trust, UX, SEO, accessibility, PR readiness, and conversion structure.
+          A focused breakdown of your personal brand presence, identifying gaps in trust, authority, and structure, along with clear opportunities to strengthen positioning.
         </p>
         <div class="portal-meta">
           <span class="portal-pill">Trust</span>
           <span class="portal-pill">SEO</span>
           <span class="portal-pill">UX</span>
         </div>
-        <div class="portal-cta">Open audit</div>
+        <div class="portal-cta">Review audit</div>
       </a>
 
       <a class="portal-card" href="./audit-2/">
@@ -617,19 +655,19 @@
         </div>
         <div class="portal-title">Clinic Site <span>Audit</span></div>
         <p class="portal-desc">
-          Review of vanitycosmeticclinic.com covering user experience, premium brand presentation, performance, and structural opportunity.
+          A detailed review of the clinic website experience, highlighting where the brand underperforms and how it can be elevated to reflect a more premium, conversion-led standard.
         </p>
         <div class="portal-meta">
           <span class="portal-pill">Brand</span>
           <span class="portal-pill">Performance</span>
           <span class="portal-pill">Structure</span>
         </div>
-        <div class="portal-cta">Open audit</div>
+        <div class="portal-cta">Review audit</div>
       </a>
     </div>
 
     <p class="foot-note">
-      For the cleanest client experience, send only the root portal link. Each document remains separated technically, but presented through one unified branded entry point.
+      This portal has been created to make review simple and structured, with each document contributing to a larger view of where the brand stands today and how it can move forward.
     </p>
   </main>
 </body>
