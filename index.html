@@ -46,6 +46,139 @@
       -webkit-font-smoothing:antialiased;
     }
 
+    .hidden{
+      display:none !important;
+    }
+
+    /* PASSWORD SCREEN */
+    .gate{
+      min-height:100vh;
+      background:var(--ink);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .gate::before{
+      content:'';
+      position:absolute;
+      top:-120px;
+      right:-100px;
+      width:560px;
+      height:560px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(232,197,71,.07) 0%,transparent 65%);
+      pointer-events:none;
+    }
+
+    .gate-card{
+      width:100%;
+      max-width:520px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--rlg);
+      padding:34px 32px 30px;
+      position:relative;
+      z-index:2;
+    }
+
+    .gate-label{
+      font-family:var(--fd);
+      font-size:10px;
+      font-weight:600;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.28);
+      margin-bottom:14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .gate-label::before{
+      content:'';
+      width:28px;
+      height:1px;
+      background:var(--accent);
+    }
+
+    .gate-title{
+      font-family:var(--fd);
+      font-size:42px;
+      line-height:1.02;
+      font-weight:700;
+      letter-spacing:-.03em;
+      margin-bottom:14px;
+      color:var(--white);
+    }
+
+    .gate-title span{
+      font-weight:300;
+      color:rgba(255,255,255,.42);
+    }
+
+    .gate-copy{
+      font-size:15px;
+      line-height:1.8;
+      color:rgba(255,255,255,.48);
+      margin-bottom:24px;
+      max-width:430px;
+    }
+
+    .gate-form{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .gate-input{
+      width:100%;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.1);
+      color:var(--white);
+      border-radius:10px;
+      padding:14px 16px;
+      font-size:15px;
+      font-family:var(--fb);
+      outline:none;
+    }
+
+    .gate-input:focus{
+      border-color:rgba(232,197,71,.5);
+    }
+
+    .gate-button{
+      width:100%;
+      border:none;
+      background:var(--accent);
+      color:var(--ink);
+      border-radius:10px;
+      padding:14px 16px;
+      font-family:var(--fd);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+
+    .gate-note{
+      font-size:12px;
+      color:rgba(255,255,255,.28);
+      margin-top:6px;
+      line-height:1.6;
+    }
+
+    .gate-error{
+      font-size:13px;
+      color:#e58d8d;
+      min-height:18px;
+    }
+
+    /* ORIGINAL PAGE */
     .bh{
       background:rgba(20,18,16,.96);
       backdrop-filter:blur(12px);
@@ -525,6 +658,10 @@
         font-size:42px;
       }
 
+      .gate-title{
+        font-size:34px;
+      }
+
       .cover{
         padding:52px 24px 46px;
         min-height:auto;
@@ -541,134 +678,200 @@
       .portal-desc{
         min-height:auto;
       }
+
+      .gate-card{
+        padding:28px 22px 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="bh">
-    <a class="bl" href="#">
-      <div class="blm"><span>S</span></div>
-      <div class="bw">
-        <div class="name">Studio / Review</div>
-        <div class="tag">digital strategy · growth</div>
-      </div>
-    </a>
-    <div class="hr">
-      <span class="ht">CONFIDENTIAL</span>
-      <span class="ht hta">APRIL 2026</span>
-    </div>
-  </header>
-
-  <section class="cover">
-    <div class="cover-top">
-      <div class="cover-date">April 2026 · Client Review Portal</div>
-      <div class="cover-tag">Vanity Cosmetic Clinic</div>
-    </div>
-
-    <div class="cover-center">
-      <div class="cover-eyebrow">Proposal + Dual-Site Audit</div>
-      <h1>Your Digital Review Portal</h1>
-      <p class="cover-sub">
-        A structured review of your current digital presence, covering both websites and a forward-looking strategy for how the two can evolve together.
+  <!-- PASSWORD GATE -->
+  <section id="passwordGate" class="gate">
+    <div class="gate-card">
+      <div class="gate-label">Private Review Access</div>
+      <div class="gate-title">Enter <span>access password</span></div>
+      <p class="gate-copy">
+        This review portal has been shared privately for Vanity Cosmetic Clinic. Please enter the password to continue.
       </p>
-    </div>
 
-    <div class="cover-bottom">
-      <div class="cover-for">
-        Prepared for
-        <strong>Vanity Cosmetic Clinic</strong>
-      </div>
-      <div class="cover-scopes">
-        <span class="scope-pill">Proposal</span>
-        <span class="scope-pill">Audit 01</span>
-        <span class="scope-pill">Audit 02</span>
+      <form class="gate-form" id="passwordForm">
+        <input
+          id="passwordInput"
+          class="gate-input"
+          type="password"
+          placeholder="Enter password"
+          autocomplete="off"
+        />
+        <button class="gate-button" type="submit">Enter portal</button>
+        <div id="passwordError" class="gate-error"></div>
+      </form>
+
+      <div class="gate-note">
+        This lock only applies to the main portal page.
       </div>
     </div>
   </section>
 
-  <main class="mc">
-    <section class="sh">
-      <div class="se">Portal Index</div>
-      <div class="st">Select a document to review</div>
+  <!-- ACTUAL PORTAL -->
+  <div id="siteContent" class="hidden">
+    <header class="bh">
+      <a class="bl" href="#">
+        <div class="blm"><span>S</span></div>
+        <div class="bw">
+          <div class="name">Studio / Review</div>
+          <div class="tag">digital strategy · growth</div>
+        </div>
+      </a>
+      <div class="hr">
+        <span class="ht">CONFIDENTIAL</span>
+        <span class="ht hta">APRIL 2026</span>
+      </div>
+    </header>
+
+    <section class="cover">
+      <div class="cover-top">
+        <div class="cover-date">April 2026 · Client Review Portal</div>
+        <div class="cover-tag">Vanity Cosmetic Clinic</div>
+      </div>
+
+      <div class="cover-center">
+        <div class="cover-eyebrow">Proposal + Dual-Site Audit</div>
+        <h1>Proposal. Audits.<br><span>& A Direction Forward.</span></h1>
+        <p class="cover-sub">
+          A structured review of your current digital presence, covering both websites and a forward-looking strategy for how the two can evolve together.
+        </p>
+      </div>
+
+      <div class="cover-bottom">
+        <div class="cover-for">
+          Prepared for
+          <strong>Vanity Cosmetic Clinic</strong>
+        </div>
+        <div class="cover-scopes">
+          <span class="scope-pill">Proposal</span>
+          <span class="scope-pill">Audit 01</span>
+          <span class="scope-pill">Audit 02</span>
+        </div>
+      </div>
     </section>
 
-    <div class="intro">
-      <div class="card">
-        <div class="card-label">Overview</div>
-        <p>
-          This review brings together a detailed assessment of both your personal brand website and clinic website, along with a strategic proposal for how the two can evolve together.
-          <br><br>
-          The goal is to strengthen trust, improve conversion, and position Vanity Cosmetic Clinic as a more premium, credible, and high-performing digital presence.
-        </p>
+    <main class="mc">
+      <section class="sh">
+        <div class="se">Portal Index</div>
+        <div class="st">Select a document to review</div>
+      </section>
+
+      <div class="intro">
+        <div class="card">
+          <div class="card-label">Overview</div>
+          <p>
+            This review brings together a detailed assessment of both your personal brand website and clinic website, along with a strategic proposal for how the two can evolve together.
+            <br><br>
+            The goal is to strengthen trust, improve conversion, and position Vanity Cosmetic Clinic as a more premium, credible, and high-performing digital presence.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Included</div>
+          <ul class="included-list">
+            <li>A strategic proposal outlining direction, opportunity, and the larger path forward</li>
+            <li>A detailed audit of your personal brand website</li>
+            <li>A detailed audit of your clinic website</li>
+            <li>Each document can be reviewed independently, or together as part of one cohesive strategy</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="card-label">Included</div>
-        <ul class="included-list">
-          <li>A strategic proposal outlining direction, opportunity, and the larger path forward</li>
-          <li>A detailed audit of your personal brand website</li>
-          <li>A detailed audit of your clinic website</li>
-          <li>Each document can be reviewed independently, or together as part of one cohesive strategy</li>
-        </ul>
+      <div class="portal-grid">
+        <a class="portal-card" href="./proposal/">
+          <div class="portal-type">
+            <span>Document 01</span>
+            <span class="portal-tag">Proposal</span>
+          </div>
+          <div class="portal-title">Strategic <span>Proposal</span></div>
+          <p class="portal-desc">
+            A clear direction on how both platforms can be aligned into a stronger, more scalable digital system across positioning, structure, and growth.
+          </p>
+          <div class="portal-meta">
+            <span class="portal-pill">Strategy</span>
+            <span class="portal-pill">Scope</span>
+            <span class="portal-pill">Investment</span>
+          </div>
+          <div class="portal-cta">Review proposal</div>
+        </a>
+
+        <a class="portal-card" href="./audit-1/">
+          <div class="portal-type">
+            <span>Document 02</span>
+            <span class="portal-tag">Audit 01</span>
+          </div>
+          <div class="portal-title">Personal Site <span>Audit</span></div>
+          <p class="portal-desc">
+            A focused breakdown of your personal brand presence, identifying gaps in trust, authority, and structure, along with clear opportunities to strengthen positioning.
+          </p>
+          <div class="portal-meta">
+            <span class="portal-pill">Trust</span>
+            <span class="portal-pill">SEO</span>
+            <span class="portal-pill">UX</span>
+          </div>
+          <div class="portal-cta">Review audit</div>
+        </a>
+
+        <a class="portal-card" href="./audit-2/">
+          <div class="portal-type">
+            <span>Document 03</span>
+            <span class="portal-tag">Audit 02</span>
+          </div>
+          <div class="portal-title">Clinic Site <span>Audit</span></div>
+          <p class="portal-desc">
+            A detailed review of the clinic website experience, highlighting where the brand underperforms and how it can be elevated to reflect a more premium, conversion-led standard.
+          </p>
+          <div class="portal-meta">
+            <span class="portal-pill">Brand</span>
+            <span class="portal-pill">Performance</span>
+            <span class="portal-pill">Structure</span>
+          </div>
+          <div class="portal-cta">Review audit</div>
+        </a>
       </div>
-    </div>
 
-    <div class="portal-grid">
-      <a class="portal-card" href="./proposal/">
-        <div class="portal-type">
-          <span>Document 01</span>
-          <span class="portal-tag">Proposal</span>
-        </div>
-        <div class="portal-title">Strategic <span>Proposal</span></div>
-        <p class="portal-desc">
-          A clear direction on how both platforms can be aligned into a stronger, more scalable digital system across positioning, structure, and growth.
-        </p>
-        <div class="portal-meta">
-          <span class="portal-pill">Strategy</span>
-          <span class="portal-pill">Scope</span>
-          <span class="portal-pill">Investment</span>
-        </div>
-        <div class="portal-cta">Review proposal</div>
-      </a>
+      <p class="foot-note">
+        This portal has been created to make review simple and structured, with each document contributing to a larger view of where the brand stands today and how it can move forward.
+      </p>
+    </main>
+  </div>
 
-      <a class="portal-card" href="./audit-1/">
-        <div class="portal-type">
-          <span>Document 02</span>
-          <span class="portal-tag">Audit 01</span>
-        </div>
-        <div class="portal-title">Personal Site <span>Audit</span></div>
-        <p class="portal-desc">
-          A focused breakdown of your personal brand presence, identifying gaps in trust, authority, and structure, along with clear opportunities to strengthen positioning.
-        </p>
-        <div class="portal-meta">
-          <span class="portal-pill">Trust</span>
-          <span class="portal-pill">SEO</span>
-          <span class="portal-pill">UX</span>
-        </div>
-        <div class="portal-cta">Review audit</div>
-      </a>
+  <script>
+    const PASSWORD = "vcc2026";
+    const STORAGE_KEY = "vanity-review-root-access";
 
-      <a class="portal-card" href="./audit-2/">
-        <div class="portal-type">
-          <span>Document 03</span>
-          <span class="portal-tag">Audit 02</span>
-        </div>
-        <div class="portal-title">Clinic Site <span>Audit</span></div>
-        <p class="portal-desc">
-          A detailed review of the clinic website experience, highlighting where the brand underperforms and how it can be elevated to reflect a more premium, conversion-led standard.
-        </p>
-        <div class="portal-meta">
-          <span class="portal-pill">Brand</span>
-          <span class="portal-pill">Performance</span>
-          <span class="portal-pill">Structure</span>
-        </div>
-        <div class="portal-cta">Review audit</div>
-      </a>
-    </div>
+    const gate = document.getElementById("passwordGate");
+    const content = document.getElementById("siteContent");
+    const form = document.getElementById("passwordForm");
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("passwordError");
 
-    <p class="foot-note">
-      This portal has been created to make review simple and structured, with each document contributing to a larger view of where the brand stands today and how it can move forward.
-    </p>
-  </main>
+    function unlockPortal() {
+      gate.classList.add("hidden");
+      content.classList.remove("hidden");
+    }
+
+    if (localStorage.getItem(STORAGE_KEY) === "granted") {
+      unlockPortal();
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const entered = input.value.trim();
+
+      if (entered === PASSWORD) {
+        localStorage.setItem(STORAGE_KEY, "granted");
+        unlockPortal();
+      } else {
+        error.textContent = "Incorrect password. Please try again.";
+      }
+    });
+  </script>
 </body>
 </html>
