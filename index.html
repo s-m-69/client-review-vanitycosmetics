@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Review Portal — Vanity Cosmetic Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#E8C547;
+      --accent-dim:#C9A832;
+      --accent-pale:#FBF5DC;
+      --ink:#141210;
+      --ink-2:#1E1C18;
+      --ink-3:#3A3630;
+      --mid:#6B6560;
+      --muted:#9E9890;
+      --rule:#E2DDD6;
+      --surface:#F9F7F4;
+      --surface-2:#F1EDE7;
+      --surface-3:#E6E0D8;
+      --white:#FDFCFA;
+      --fd:'Sora',sans-serif;
+      --fb:'Nunito Sans',sans-serif;
+      --r:4px;
+      --rmd:8px;
+      --rlg:12px;
+    }
+
+    *,*::before,*::after{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+      font-size:15px;
+    }
+
+    body{
+      font-family:var(--fb);
+      background:var(--ink);
+      color:var(--white);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .bh{
+      background:rgba(20,18,16,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      height:58px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 48px;
+      position:sticky;
+      top:0;
+      z-index:200;
+    }
+
+    .bl{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+    }
+
+    .blm{
+      width:32px;
+      height:32px;
+      background:var(--accent);
+      border-radius:var(--r);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .blm span{
+      font-family:var(--fd);
+      font-size:14px;
+      font-weight:700;
+      color:var(--ink);
+      line-height:1;
+      letter-spacing:-0.02em;
+    }
+
+    .bw .name{
+      font-family:var(--fd);
+      font-size:13px;
+      font-weight:600;
+      color:var(--white);
+      letter-spacing:-.01em;
+    }
+
+    .bw .tag{
+      font-size:10px;
+      color:rgba(255,255,255,.3);
+      font-family:var(--fd);
+      font-weight:400;
+      letter-spacing:0.04em;
+    }
+
+    .hr{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .ht{
+      font-size:10px;
+      font-family:var(--fd);
+      font-weight:500;
+      padding:4px 10px;
+      border-radius:99px;
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.35);
+      letter-spacing:0.05em;
+    }
+
+    .hta{
+      background:rgba(232,197,71,.12);
+      color:var(--accent);
+    }
+
+    .cover{
+      min-height:calc(100vh - 58px);
+      padding:80px 80px 72px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:var(--ink);
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .cover::before{
+      content:'';
+      position:absolute;
+      top:-120px;
+      right:-100px;
+      width:560px;
+      height:560px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(232,197,71,.07) 0%,transparent 65%);
+      pointer-events:none;
+    }
+
+    .cover::after{
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--accent),transparent);
+    }
+
+    .cover-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom:56px;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .cover-date{
+      font-family:var(--fd);
+      font-size:10px;
+      font-weight:500;
+      letter-spacing:0.1em;
+      color:rgba(255,255,255,.25);
+      text-transform:uppercase;
+    }
+
+    .cover-tag{
+      font-family:var(--fd);
+      font-size:10px;
+      font-weight:600;
+      letter-spacing:0.1em;
+      color:var(--accent);
+      text-transform:uppercase;
+      border:1px solid rgba(232,197,71,.3);
+      padding:5px 12px;
+      border-radius:99px;
+    }
+
+    .cover-center{
+      max-width:760px;
+      padding:10px 0 42px;
+    }
+
+    .cover-eyebrow{
+      font-family:var(--fd);
+      font-size:11px;
+      font-weight:500;
+      letter-spacing:0.14em;
+      color:rgba(255,255,255,.25);
+      text-transform:uppercase;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .cover-eyebrow::before{
+      content:'';
+      width:36px;
+      height:1px;
+      background:var(--accent);
+    }
+
+    h1{
+      font-family:var(--fd);
+      font-size:58px;
+      font-weight:700;
+      color:var(--white);
+      line-height:1.02;
+      margin-bottom:16px;
+      max-width:760px;
+      letter-spacing:-.03em;
+    }
+
+    h1 span{
+      font-weight:300;
+      color:rgba(255,255,255,.42);
+    }
+
+    h1 em{
+      font-style:normal;
+      color:var(--accent);
+    }
+
+    .cover-sub{
+      font-family:var(--fb);
+      font-size:15px;
+      font-weight:300;
+      color:rgba(255,255,255,.45);
+      max-width:560px;
+      line-height:1.75;
+    }
+
+    .cover-bottom{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:24px;
+      margin-top:14px;
+    }
+
+    .cover-for{
+      font-family:var(--fb);
+      font-size:12px;
+      color:rgba(255,255,255,.25);
+    }
+
+    .cover-for strong{
+      display:block;
+      font-family:var(--fd);
+      font-size:16px;
+      font-weight:600;
+      color:rgba(255,255,255,.62);
+      margin-top:4px;
+      letter-spacing:-.01em;
+    }
+
+    .cover-scopes{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .scope-pill{
+      font-family:var(--fd);
+      font-size:9px;
+      font-weight:500;
+      letter-spacing:0.08em;
+      padding:5px 12px;
+      border-radius:99px;
+      border:1px solid rgba(255,255,255,.1);
+      color:rgba(255,255,255,.3);
+      text-transform:uppercase;
+    }
+
+    .mc{
+      padding:56px 60px 90px;
+      max-width:1180px;
+      margin:0 auto;
+    }
+
+    .sh{
+      padding-bottom:18px;
+      margin-bottom:26px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .se{
+      font-family:var(--fd);
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.2);
+      margin-bottom:6px;
+    }
+
+    .st{
+      font-family:var(--fd);
+      font-size:30px;
+      font-weight:700;
+      color:var(--white);
+      line-height:1.1;
+      letter-spacing:-.02em;
+    }
+
+    .intro{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:var(--rlg);
+      padding:20px 24px;
+    }
+
+    .card-label{
+      font-family:var(--fd);
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.25);
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+
+    .card-label::before{
+      content:'';
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--accent);
+      flex-shrink:0;
+    }
+
+    .card p{
+      font-size:14px;
+      font-family:var(--fb);
+      font-weight:400;
+      line-height:1.75;
+      color:rgba(255,255,255,.55);
+    }
+
+    .portal-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .portal-card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--rlg);
+      padding:24px 22px 22px;
+      position:relative;
+      overflow:hidden;
+      transition:transform .18s ease,border-color .18s ease,background .18s ease;
+      text-decoration:none;
+      display:block;
+    }
+
+    .portal-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(232,197,71,.24);
+      background:rgba(232,197,71,.05);
+    }
+
+    .portal-card::after{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(232,197,71,.45),transparent);
+      opacity:.6;
+    }
+
+    .portal-type{
+      font-family:var(--fd);
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.24);
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .portal-tag{
+      border:1px solid rgba(232,197,71,.2);
+      color:var(--accent);
+      padding:4px 8px;
+      border-radius:99px;
+      font-size:8px;
+      letter-spacing:.08em;
+    }
+
+    .portal-title{
+      font-family:var(--fd);
+      font-size:22px;
+      font-weight:700;
+      color:var(--white);
+      line-height:1.08;
+      letter-spacing:-.02em;
+      margin-bottom:10px;
+    }
+
+    .portal-title span{
+      font-weight:300;
+      color:rgba(255,255,255,.4);
+    }
+
+    .portal-desc{
+      font-size:13px;
+      line-height:1.7;
+      color:rgba(255,255,255,.45);
+      margin-bottom:18px;
+      min-height:66px;
+    }
+
+    .portal-meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .portal-pill{
+      font-family:var(--fd);
+      font-size:9px;
+      font-weight:500;
+      letter-spacing:.07em;
+      padding:5px 10px;
+      border-radius:99px;
+      border:1px solid rgba(255,255,255,.1);
+      color:rgba(255,255,255,.32);
+      text-transform:uppercase;
+    }
+
+    .portal-cta{
+      font-family:var(--fd);
+      font-size:11px;
+      font-weight:600;
+      color:var(--accent);
+      letter-spacing:.04em;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .portal-cta::after{
+      content:'→';
+      font-size:13px;
+      line-height:1;
+    }
+
+    .foot-note{
+      margin-top:18px;
+      font-size:12px;
+      color:rgba(255,255,255,.28);
+      line-height:1.7;
+    }
+
+    @media(max-width:980px){
+      .portal-grid,
+      .intro{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:42px;
+      }
+
+      .cover{
+        padding:52px 24px 46px;
+        min-height:auto;
+      }
+
+      .bh{
+        padding:0 20px;
+      }
+
+      .mc{
+        padding:32px 20px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="bh">
+    <a class="bl" href="#">
+      <div class="blm"><span>S</span></div>
+      <div class="bw">
+        <div class="name">Studio / Review</div>
+        <div class="tag">digital strategy · growth</div>
+      </div>
+    </a>
+    <div class="hr">
+      <span class="ht">CONFIDENTIAL</span>
+      <span class="ht hta">APRIL 2025</span>
+    </div>
+  </header>
+
+  <section class="cover">
+    <div class="cover-top">
+      <div class="cover-date">April 2025 · Client Review Portal</div>
+      <div class="cover-tag">Vanity Cosmetic Clinic</div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Proposal + Dual-Site Audit</div>
+      <h1>One Client.<br><span>Three Documents.</span><br><em>One Review Portal.</em></h1>
+      <p class="cover-sub">
+        A single access point for the proposal and both website audit deliverables, structured in the same presentation language and visual system as the documents themselves.
+      </p>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-for">
+        Prepared for
+        <strong>Vanity Cosmetic Clinic</strong>
+      </div>
+      <div class="cover-scopes">
+        <span class="scope-pill">Proposal</span>
+        <span class="scope-pill">Audit 01</span>
+        <span class="scope-pill">Audit 02</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="mc">
+    <section class="sh">
+      <div class="se">Portal Index</div>
+      <div class="st">Select a document to review</div>
+    </section>
+
+    <div class="intro">
+      <div class="card">
+        <div class="card-label">Overview</div>
+        <p>
+          This review portal has been designed to feel native to the existing proposal and audit documents, rather than acting as a separate landing page. The typography, palette, layout language, tags, and interface styling follow the same system already used across the proposal and both audits.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-label">Included</div>
+        <p>
+          Proposal document, personal website audit, and clinic website audit. Each opens as an independent page while staying inside the same branded review environment.
+        </p>
+      </div>
+    </div>
+
+    <div class="portal-grid">
+      <a class="portal-card" href="./proposal/">
+        <div class="portal-type">
+          <span>Document 01</span>
+          <span class="portal-tag">Proposal</span>
+        </div>
+        <div class="portal-title">Strategic <span>Proposal</span></div>
+        <p class="portal-desc">
+          Primary proposal document covering the strategic partnership, website direction, and broader opportunity framing.
+        </p>
+        <div class="portal-meta">
+          <span class="portal-pill">Strategy</span>
+          <span class="portal-pill">Scope</span>
+          <span class="portal-pill">Investment</span>
+        </div>
+        <div class="portal-cta">Open document</div>
+      </a>
+
+      <a class="portal-card" href="./audit-1/">
+        <div class="portal-type">
+          <span>Document 02</span>
+          <span class="portal-tag">Audit 01</span>
+        </div>
+        <div class="portal-title">Personal Site <span>Audit</span></div>
+        <p class="portal-desc">
+          Review of drsantoshbhatia.com with focus across trust, UX, SEO, accessibility, PR readiness, and conversion structure.
+        </p>
+        <div class="portal-meta">
+          <span class="portal-pill">Trust</span>
+          <span class="portal-pill">SEO</span>
+          <span class="portal-pill">UX</span>
+        </div>
+        <div class="portal-cta">Open audit</div>
+      </a>
+
+      <a class="portal-card" href="./audit-2/">
+        <div class="portal-type">
+          <span>Document 03</span>
+          <span class="portal-tag">Audit 02</span>
+        </div>
+        <div class="portal-title">Clinic Site <span>Audit</span></div>
+        <p class="portal-desc">
+          Review of vanitycosmeticclinic.com covering user experience, premium brand presentation, performance, and structural opportunity.
+        </p>
+        <div class="portal-meta">
+          <span class="portal-pill">Brand</span>
+          <span class="portal-pill">Performance</span>
+          <span class="portal-pill">Structure</span>
+        </div>
+        <div class="portal-cta">Open audit</div>
+      </a>
+    </div>
+
+    <p class="foot-note">
+      For the cleanest client experience, send only the root portal link. Each document remains separated technically, but presented through one unified branded entry point.
+    </p>
+  </main>
+</body>
+</html>
