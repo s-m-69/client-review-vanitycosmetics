@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal — Dr. Santosh Bhatia × Vanity Cosmetic Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#E8C547;--accent-dim:#C9A832;--accent-pale:#FBF5DC;
+  --ink:#141210;--ink-2:#181614;--ink-3:#3A3630;
+  --mid:#6B6560;--muted:#9E9890;--rule:#E2DDD6;
+  --surface:#F9F7F4;--surface-2:#F1EDE7;--surface-3:#E6E0D8;
+  --white:#FDFCFA;
+  --red:#B83030;--red-bg:#FAF0F0;
+  --amber:#9C5E0A;--amber-bg:#FDF4E8;
+  --green:#1E6B42;--green-bg:#EAF5EF;
+  --fd:'Sora',sans-serif;--fb:'Nunito Sans',sans-serif;
+  --r:4px;--rmd:8px;--rlg:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.bh{background:rgba(20,18,16,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:200}
+.bl{display:flex;align-items:center;gap:10px;text-decoration:none}
+.blm{width:32px;height:32px;background:var(--accent);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.blm span{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-0.02em}
+.bw .name{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--white);letter-spacing:-.01em}
+.bw .tag{font-size:10px;color:rgba(255,255,255,.3);font-family:var(--fd);font-weight:400;letter-spacing:0.04em}
+.hr{display:flex;align-items:center;gap:8px}
+.ht{font-size:10px;font-family:var(--fd);font-weight:500;padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.35);letter-spacing:0.05em}
+.hta{background:rgba(232,197,71,.12);color:var(--accent)}
+
+/* COVER */
+.cover{min-height:92vh;padding:80px 80px 72px;display:flex;flex-direction:column;justify-content:space-between;background:var(--ink);position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
+.cover::before{content:'';position:absolute;top:-100px;right:-60px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(232,197,71,.07) 0%,transparent 65%);pointer-events:none}
+.cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.cover-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:auto}
+.cover-date{font-family:var(--fd);font-size:10px;font-weight:500;letter-spacing:0.1em;color:rgba(255,255,255,.25);text-transform:uppercase}
+.cover-tag{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase;border:1px solid rgba(232,197,71,.3);padding:5px 12px;border-radius:99px}
+.cover-center{padding:60px 0 40px}
+.cover-eyebrow{font-family:var(--fd);font-size:11px;font-weight:500;letter-spacing:0.14em;color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.cover-eyebrow::before{content:'';width:36px;height:1px;background:var(--accent)}
+.cover h1{font-family:var(--fd);font-size:58px;font-weight:700;color:var(--white);line-height:1.0;margin-bottom:16px;max-width:680px;letter-spacing:-.03em}
+.cover h1 span{font-weight:300;color:rgba(255,255,255,.4)}
+.cover h1 em{font-style:normal;color:var(--accent)}
+.cover-sub{font-family:var(--fb);font-size:15px;font-weight:300;color:rgba(255,255,255,.4);max-width:500px;line-height:1.7}
+.cover-bottom{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.cover-for{font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.25)}
+.cover-for strong{display:block;font-family:var(--fd);font-size:16px;font-weight:600;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:-.01em}
+.cover-scopes{display:flex;gap:8px;flex-wrap:wrap}
+.scope-pill{font-family:var(--fd);font-size:9px;font-weight:500;letter-spacing:0.08em;padding:5px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3)}
+
+/* LAYOUT */
+.pl{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sb{background:rgba(20,18,16,.5);border-right:1px solid rgba(255,255,255,.06);padding:32px 0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto}
+.sb::-webkit-scrollbar{width:3px}
+.sb::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08)}
+.sbl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.18);padding:14px 22px 5px;display:block}
+.sbk{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;font-size:12px;font-family:var(--fb);color:rgba(255,255,255,.3);text-decoration:none;border-left:2px solid transparent;transition:all .14s;gap:8px}
+.sbk:hover{color:rgba(255,255,255,.65);background:rgba(255,255,255,.03)}
+.sbk.active{color:var(--accent);background:rgba(232,197,71,.06);border-left-color:var(--accent)}
+.sb-n{font-family:var(--fd);font-size:9px;font-weight:600;padding:2px 6px;border-radius:99px;flex-shrink:0;background:rgba(255,255,255,.06);color:rgba(255,255,255,.25)}
+.sbdiv{height:1px;background:rgba(255,255,255,.06);margin:12px 0}
+
+/* MAIN */
+.mc{padding:56px 60px 100px;max-width:860px}
+.as{margin-bottom:72px;scroll-margin-top:76px}
+.se{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:6px}
+.st{font-family:var(--fd);font-size:30px;font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-.02em}
+.sh{padding-bottom:18px;margin-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08)}
+
+/* CALLOUT */
+.callout{background:rgba(232,197,71,.05);border:1px solid rgba(232,197,71,.15);border-radius:var(--rlg);padding:22px 26px;margin-bottom:20px;border-left:3px solid var(--accent)}
+.callout-label{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;opacity:.7}
+.callout p{font-family:var(--fb);font-weight:300;font-style:italic;font-size:16px;color:rgba(255,255,255,.65);line-height:1.7}
+
+/* CARDS */
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--rlg);padding:20px 24px;margin-bottom:12px}
+.card-label{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.card-label::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.card p,.card li{font-size:14px;font-family:var(--fb);font-weight:400;line-height:1.7;color:rgba(255,255,255,.55)}
+.card ul{padding-left:18px}
+.card li{margin-bottom:5px}.card li:last-child{margin-bottom:0}
+.card strong{font-weight:700;color:rgba(255,255,255,.8)}
+.card-green .card-label::before{background:#4CAF78}
+.card-red .card-label::before{background:#E07070}
+
+/* TWO-COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+
+/* PHASE */
+.phase{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:var(--rlg);padding:24px 26px;margin-bottom:14px;position:relative;overflow:hidden}
+.phase::before{content:attr(data-num);position:absolute;top:-10px;right:20px;font-family:var(--fd);font-size:80px;font-weight:700;color:rgba(255,255,255,.02);line-height:1;letter-spacing:-.04em}
+.phase-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:12px}
+.phase-title{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--white);line-height:1.2;letter-spacing:-.01em}
+.phase-meta{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.phase-tag{font-family:var(--fd);font-size:9px;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35);letter-spacing:.04em}
+.phase-tag.t-acc{border-color:rgba(232,197,71,.3);color:var(--accent)}
+.phase p{font-size:14px;font-family:var(--fb);font-weight:300;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:14px}
+.phase-items{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pi-item{background:rgba(255,255,255,.04);border-radius:var(--rmd);padding:10px 13px;font-size:13px;font-family:var(--fb);font-weight:400;color:rgba(255,255,255,.5);line-height:1.45;border:1px solid rgba(255,255,255,.05)}
+.pi-item strong{display:block;font-size:11px;font-family:var(--fd);font-weight:600;color:rgba(255,255,255,.65);margin-bottom:3px;letter-spacing:.01em}
+
+/* RETAINER TIERS */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.tier{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:22px 20px;position:relative}
+.tier.featured{background:rgba(232,197,71,.06);border-color:rgba(232,197,71,.22)}
+.tier-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--ink);font-family:var(--fd);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.tier-name{font-family:var(--fd);font-size:16px;font-weight:600;color:var(--white);margin-bottom:4px;letter-spacing:-.01em}
+.tier-price{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:4px;letter-spacing:-.02em}
+.tier-price span{font-size:13px;font-family:var(--fb);font-weight:400;color:rgba(255,255,255,.25)}
+.tier-desc{font-size:12px;font-family:var(--fb);color:rgba(255,255,255,.3);margin-bottom:16px;line-height:1.55}
+.tier-items{list-style:none}
+.tier-items li{font-size:12px;font-family:var(--fb);color:rgba(255,255,255,.45);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.45;display:flex;align-items:flex-start;gap:8px}
+.tier-items li:last-child{border-bottom:none}
+.tier-items li::before{content:'—';color:var(--accent);opacity:.35;flex-shrink:0;font-family:var(--fd);font-weight:600}
+.tier.featured .tier-items li{color:rgba(255,255,255,.6)}
+
+/* SYNERGY TABLE */
+.syn-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.syn-table th{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+.syn-table td{padding:12px 14px;font-size:13px;font-family:var(--fb);font-weight:400;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;line-height:1.55}
+.syn-table tr:hover td{background:rgba(255,255,255,.02)}
+.syn-site{font-family:var(--fd);font-size:9px;font-weight:600;color:var(--accent);opacity:.7;letter-spacing:.04em}
+.syn-prob{color:rgba(255,255,255,.32)}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;margin-bottom:20px}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:rgba(255,255,255,.08)}
+.tl-item{position:relative;margin-bottom:20px}
+.tl-item::before{content:'';position:absolute;left:-25px;top:6px;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15)}
+.tl-item.act::before{background:var(--accent);border-color:var(--accent)}
+.tl-month{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:4px}
+.tl-title{font-size:14px;font-family:var(--fd);font-weight:600;color:rgba(255,255,255,.7);margin-bottom:4px;letter-spacing:-.01em}
+.tl-desc{font-size:13px;font-family:var(--fb);font-weight:300;color:rgba(255,255,255,.35);line-height:1.6}
+
+/* INVESTMENT */
+.inv-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.inv-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--rlg);padding:20px 22px}
+.inv-label{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:8px}
+.inv-amount{font-family:var(--fd);font-size:30px;font-weight:700;color:var(--white);line-height:1;margin-bottom:4px;letter-spacing:-.02em}
+.inv-sub{font-size:12px;font-family:var(--fb);font-weight:300;color:rgba(255,255,255,.3);line-height:1.55}
+.inv-card.featured{background:rgba(232,197,71,.05);border-color:rgba(232,197,71,.18)}
+.inv-card.featured .inv-amount{color:var(--accent)}
+
+/* CTA */
+.cta-block{background:var(--accent);border-radius:var(--rlg);padding:36px 40px;text-align:center;margin-top:40px}
+.cta-block h3{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.02em}
+.cta-block p{font-size:14px;font-family:var(--fb);font-weight:400;color:rgba(20,18,16,.55);margin-bottom:24px;line-height:1.6}
+.cta-btn{display:inline-block;background:var(--ink);color:var(--white);font-family:var(--fd);font-size:12px;font-weight:600;padding:12px 28px;border-radius:var(--rmd);text-decoration:none;letter-spacing:.03em}
+
+@media(max-width:900px){
+  .pl{grid-template-columns:1fr}.sb{display:none}
+  .mc{padding:32px 22px 60px}.bh{padding:0 22px}
+  .cover{padding:48px 24px 44px;min-height:auto}
+  .cover h1{font-size:38px}
+  .two-col,.inv-row,.tier-grid{grid-template-columns:1fr}
+  .phase-items{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="bh">
+  <a class="bl" href="#"><div class="blm"><span>S</span></div><div class="bw"><div class="name">Studio / Proposal</div><div class="tag">digital strategy · growth</div></div></a>
+  <div class="hr"><span class="ht">CONFIDENTIAL</span><span class="ht hta">APRIL 2025</span></div>
+</header>
+
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-date">April 2025 · Proposal Document</div>
+    <div class="cover-tag">Strategic Partnership</div>
+  </div>
+  <div class="cover-center">
+    <div class="cover-eyebrow">Dual-Site Redesign + Growth Retainer</div>
+    <h1>One Brand.<br><span>Two Sites.</span><br><em>One Strategy.</em></h1>
+    <p class="cover-sub">A complete redesign and synergy plan for drsantoshbhatia.com and vanitycosmeticclinic.com — with a monthly growth retainer to track, optimise, and amplify both.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-for">Prepared for<strong>Dr. Santosh Bhatia · Vanity Cosmetic Clinic</strong></div>
+    <div class="cover-scopes">
+      <span class="scope-pill">Website Redesign</span>
+      <span class="scope-pill">Brand Strategy</span>
+      <span class="scope-pill">SEO Architecture</span>
+      <span class="scope-pill">Monthly Retainer</span>
+    </div>
+  </div>
+</section>
+
+<div class="pl">
+  <aside class="sb">
+    <span class="sbl">Proposal</span>
+    <a class="sbk" href="#situation">The Situation</a>
+    <a class="sbk" href="#problem">The Core Problem</a>
+    <a class="sbk" href="#vision">Strategic Vision</a>
+    <a class="sbk" href="#personal-redesign">Site 1 · Personal Brand</a>
+    <a class="sbk" href="#clinic-redesign">Site 2 · Clinic</a>
+    <a class="sbk" href="#synergy">Cross-Site Synergy</a>
+    <a class="sbk" href="#retainer">Growth Retainer</a>
+    <a class="sbk" href="#timeline">Timeline</a>
+    <a class="sbk active" href="#investment">Investment</a>
+    <div class="sbdiv"></div>
+    <span class="sbl">Scope</span>
+    <a class="sbk" href="#personal-redesign">drsantoshbhatia.com <span class="sb-n">S1</span></a>
+    <a class="sbk" href="#clinic-redesign">vanitycosmeticclinic.com <span class="sb-n">S2</span></a>
+    <a class="sbk" href="#retainer">Monthly retainer <span class="sb-n">R</span></a>
+  </aside>
+
+  <main class="mc">
+
+    <div class="as" id="situation">
+      <div class="sh"><div class="se">Context</div><div class="st">The Situation</div></div>
+      <div class="callout"><div class="callout-label">The Reality</div><p>"Dr. Santosh Bhatia has the credentials, the career, and the clinical results to be the most recognisable cosmetic surgeon brand in Mumbai. The digital footprint does not reflect this — and it is costing leads, press coverage, and trust every single day."</p></div>
+      <div class="two-col">
+        <div class="card"><div class="card-label">What exists</div><ul>
+          <li>Two separate websites with no shared strategy</li>
+          <li>A personal brand site with a broken build (German nav, church template)</li>
+          <li>A clinic site with strong SEO infrastructure but undermined by discount offers</li>
+          <li>Fragmented social handles across both properties</li>
+          <li>Zero press-readiness on either site</li>
+        </ul></div>
+        <div class="card"><div class="card-label">What's being wasted</div><ul>
+          <li>MCh qualification + global career narrative — invisible on homepage</li>
+          <li>Celebrity clientele association (YRF Studios) — buried in body copy</li>
+          <li>2,000+ surgeries and 10+ years experience — not surfaced as proof</li>
+          <li>Kokilaben + Breach Candy hospital affiliations — not in the hero</li>
+          <li>3D Crisalix technology — undersold as a differentiator</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="as" id="problem">
+      <div class="sh"><div class="se">Diagnosis</div><div class="st">The Core Problem</div></div>
+      <div class="card card-red" style="margin-bottom:12px"><div class="card-label">The fundamental disconnect</div><p>The two sites currently operate as <strong>independent islands</strong> — they share a doctor, a clinic, a phone number, and a WhatsApp link, but they have no shared brand language, no deliberate patient journey between them, and no strategy for how a visitor on one site should be directed to, or primed for, the other.</p></div>
+      <div class="card" style="margin-bottom:12px"><div class="card-label">Site 1 problem: the personal brand site</div><ul>
+        <li>Functions as a <strong>premium brand aspiration</strong> with none of the execution. Broken template, dead navigation links, German-language mobile menu, no real procedure content.</li>
+        <li>Has a lightbox-calendar booking flow (a genuine asset) but no SEO, no procedure pages, no PR infrastructure.</li>
+        <li>Should be the <strong>doctor's editorial platform</strong> — the place where Dr. Bhatia's story, philosophy, and authority are told. Currently it is none of these things.</li>
+      </ul></div>
+      <div class="card"><div class="card-label">Site 2 problem: the clinic site</div><ul>
+        <li>Has the right SEO architecture but <strong>sabotages its own positioning</strong> by placing discount offers next to medical credentials — a fundamental brand contradiction.</li>
+        <li>Is the operational site — procedure pages, before/after gallery, blog — but the booking flow is less sophisticated than the personal site. This is backwards.</li>
+        <li>Should be the <strong>clinical conversion engine</strong> — the place patients go to research procedures, read results, and book. It is close to this but not there yet.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="vision">
+      <div class="sh"><div class="se">Strategy</div><div class="st">Strategic Vision</div></div>
+      <div class="callout"><div class="callout-label">The Guiding Principle</div><p>"The personal site builds desire and trust. The clinic site converts it. Every visitor who lands on either site should leave knowing exactly who Dr. Santosh Bhatia is, why he is the right choice, and how to book. The two sites are chapters in the same story — not separate publications."</p></div>
+      <div class="two-col">
+        <div class="card"><div class="card-label">Site 1 — New Role: The Authority Platform</div><ul>
+          <li>Dr. Bhatia's editorial home — his story, philosophy, and voice</li>
+          <li>The brand's PR surface — press-ready, media kit, shareable</li>
+          <li>The trust-builder — credentials, celebrity angle, global career, before/after</li>
+          <li>Funnels warm visitors to the clinic site to complete research and book</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Site 2 — New Role: The Conversion Engine</div><ul>
+          <li>The operational clinic hub — all procedures, all services</li>
+          <li>The SEO workhorse — ranking for every high-intent procedure keyword in Mumbai</li>
+          <li>The conversion machine — lightbox booking, lead capture, WhatsApp flow</li>
+          <li>Cross-links back to personal site for trust-building content</li>
+        </ul></div>
+      </div>
+      <div class="card"><div class="card-label">Shared Brand Architecture</div><ul>
+        <li><strong>One visual identity system</strong> — same typography, colour palette, tone of voice, and photography direction across both sites.</li>
+        <li><strong>One brand hierarchy</strong> — "Dr. Santosh Bhatia at Vanity Cosmetic Clinic" — with clear visual subordination between personal brand and clinic brand.</li>
+        <li><strong>Unified social handle strategy</strong> — aligned across both sites, all platforms, with consistent cross-linking.</li>
+        <li><strong>Shared proof assets</strong> — 2,000+ surgeries, global career, hospital affiliations, and celebrity clientele surfaced consistently across both sites, not siloed to one.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="personal-redesign">
+      <div class="sh"><div class="se">Site 1 · Redesign</div><div class="st">drsantoshbhatia.com</div></div>
+      <div class="phase" data-num="1">
+        <div class="phase-head"><div class="phase-title">Homepage — The Story, Not the Service List</div><div class="phase-meta"><span class="phase-tag t-acc">Redesign</span><span class="phase-tag">Priority 1</span></div></div>
+        <p>The homepage is rebuilt around a single editorial narrative: who is Dr. Santosh Bhatia, why does his background set him apart, and what does it feel like to be his patient. This is a brand story page, not a procedure catalogue.</p>
+        <div class="phase-items">
+          <div class="pi-item"><strong>Hero section</strong>Full-bleed, art-directed image of Dr. Bhatia — clinical, confident — with MCh, 10+ years, global cities visible in the first 100px</div>
+          <div class="pi-item"><strong>Credibility strip</strong>Hospital logos (Kokilaben, Breach Candy, SBS), professional body memberships (ASPS, AAPS), all above the fold</div>
+          <div class="pi-item"><strong>The origin story</strong>A rich editorial section: New York → London → Toronto → Chicago → Miami → Mumbai. The surgeon's journey told as a visual timeline</div>
+          <div class="pi-item"><strong>Celebrity angle</strong>The YRF Studios proximity and celebrity clientele elevated from buried body copy to a featured section with appropriate discretion</div>
+          <div class="pi-item"><strong>3D Consultation as hero feature</strong>Crisalix positioned prominently as a differentiator — not as a mid-page afterthought</div>
+          <div class="pi-item"><strong>Press-ready media section</strong>A dedicated section linking to the media kit, downloadable biography, and high-res photo library</div>
+        </div>
+      </div>
+      <div class="phase" data-num="2">
+        <div class="phase-head"><div class="phase-title">Technical Rebuild — Clean Foundation</div><div class="phase-meta"><span class="phase-tag t-acc">Rebuild</span><span class="phase-tag">Priority 1</span></div></div>
+        <p>The current site has foundational build errors that cannot be patched — they require a proper rebuild. The Webflow template must be replaced, not patched.</p>
+        <div class="phase-items">
+          <div class="pi-item"><strong>Eliminate duplicate DOM</strong>All duplicate HTML sections removed. Clean, single-render output on every page</div>
+          <div class="pi-item"><strong>Mobile navigation</strong>Complete replacement of German/church template navigation with a clean, branded mobile menu</div>
+          <div class="pi-item"><strong>SEO foundation</strong>Correct title tags, meta descriptions, H1 hierarchy, Schema markup (Physician, LocalBusiness, Review)</div>
+          <div class="pi-item"><strong>Performance</strong>WebP hero images, lazy loading below fold only, target LCP under 2.5s</div>
+          <div class="pi-item"><strong>Lightbox audit</strong>Full QA of the booking lightbox on mobile (Android Chrome, iOS Safari). Procedure selector added to step 1</div>
+          <div class="pi-item"><strong>All CTAs wired</strong>Footer "Talk to us", FAQ "Still in doubts?", and all mid-page CTAs connected to the booking lightbox</div>
+        </div>
+      </div>
+      <div class="phase" data-num="3">
+        <div class="phase-head"><div class="phase-title">New Pages</div><div class="phase-meta"><span class="phase-tag t-acc">Build</span></div></div>
+        <div class="phase-items">
+          <div class="pi-item"><strong>Procedure landing pages</strong>Rhinoplasty, breast augmentation, tummy tuck, liposuction, buccal fat removal — each with 800+ words, FAQs, and before/after</div>
+          <div class="pi-item"><strong>Press / media kit</strong>High-res photos, biography PDF, notable procedures, media contact, brand assets for download</div>
+          <div class="pi-item"><strong>About — expanded</strong>Full career narrative, philosophy, approach, memberships — rebuilt as a rich editorial page</div>
+          <div class="pi-item"><strong>Before/After gallery</strong>Filterable by procedure, with consent-compliant presentation and strong visual treatment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="as" id="clinic-redesign">
+      <div class="sh"><div class="se">Site 2 · Redesign</div><div class="st">vanitycosmeticclinic.com</div></div>
+      <div class="phase" data-num="1">
+        <div class="phase-head"><div class="phase-title">Homepage — The Conversion Engine</div><div class="phase-meta"><span class="phase-tag t-acc">Redesign</span><span class="phase-tag">Priority 1</span></div></div>
+        <p>The homepage is rebuilt as a focused, high-converting clinical site. Premium positioning is restored. Discount offers are removed from the homepage entirely and confined to campaign-specific landing pages.</p>
+        <div class="phase-items">
+          <div class="pi-item"><strong>Static hero</strong>A single, confident hero statement — no auto-rotating slides. One message, one CTA, above the fold</div>
+          <div class="pi-item"><strong>Credentials bar</strong>2,000+ surgeries, hospital affiliations, professional memberships — immediately visible, quantified, and linked</div>
+          <div class="pi-item"><strong>Remove all homepage discounts</strong>₹5,000 offers moved to campaign URLs only. Homepage language shifts to "complimentary consultation" framing</div>
+          <div class="pi-item"><strong>Procedure navigation rebuild</strong>"Our Specialities" and "Other Services" merged into a single "Procedures" mega-menu by body area</div>
+          <div class="pi-item"><strong>Testimonials — full-format</strong>Replace one-line ticker with full-story testimonials, procedure names, photos, and video embeds</div>
+          <div class="pi-item"><strong>Booking flow upgrade</strong>Implement the same lightbox-with-calendar from the personal site. The clinic site should have the most sophisticated booking flow</div>
+        </div>
+      </div>
+      <div class="phase" data-num="2">
+        <div class="phase-head"><div class="phase-title">Performance & Technical</div><div class="phase-meta"><span class="phase-tag t-acc">Fix</span></div></div>
+        <div class="phase-items">
+          <div class="pi-item"><strong>NitroPack reconfiguration</strong>Exclude LCP and above-fold images from lazy loading. Hero loads eagerly, everything below fold defers</div>
+          <div class="pi-item"><strong>Crisalix click-to-load</strong>Replace on-init iframe load with preview image + "Launch 3D Simulator" button. Major performance improvement</div>
+          <div class="pi-item"><strong>Remove agency credits</strong>"Powered by Mktg.Doctor" replaced with clinic copyright. All agency traces removed from footer</div>
+          <div class="pi-item"><strong>Schema markup</strong>LocalBusiness, MedicalOrganization, Physician, Review schema implemented sitewide. Rich snippets unlocked</div>
+          <div class="pi-item"><strong>Fix accessibility</strong>Email obfuscation replaced with contact form, ARIA labels corrected, focus states restored</div>
+          <div class="pi-item"><strong>WhatsApp pre-fill</strong>All WhatsApp CTAs updated with pre-populated procedure-relevant messages</div>
+        </div>
+      </div>
+      <div class="phase" data-num="3">
+        <div class="phase-head"><div class="phase-title">SEO Content Expansion</div><div class="phase-meta"><span class="phase-tag t-acc">Build</span></div></div>
+        <div class="phase-items">
+          <div class="pi-item"><strong>Procedure page expansion</strong>Each page expanded to 800–1,200 words with FAQs, recovery timelines, cost guidance, and before/after imagery</div>
+          <div class="pi-item"><strong>Blog — 12 foundational posts</strong>Initial 12 posts targeting the highest-value procedure + city keywords. Establishes topical authority from launch</div>
+          <div class="pi-item"><strong>International Patients — enhanced</strong>Built out with logistics, consultation process, recovery stay guidance, and international testimonials</div>
+          <div class="pi-item"><strong>Email capture</strong>A lead magnet ("Consultation Preparation Guide" PDF) builds re-engagement list from visitors who browse and leave</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="as" id="synergy">
+      <div class="sh"><div class="se">Cross-Site Architecture</div><div class="st">How the Two Sites Work Together</div></div>
+      <div class="callout"><div class="callout-label">The Patient Journey</div><p>"A patient Googles 'rhinoplasty Mumbai.' They land on the clinic site procedure page (SEO). They research. They click through to Dr. Bhatia's personal site to verify his credentials (trust). They return to the clinic site to book (conversion). Both sites play a distinct, deliberate role in the same journey."</p></div>
+      <table class="syn-table">
+        <thead><tr><th>Touchpoint</th><th>Current State</th><th>Redesigned State</th></tr></thead>
+        <tbody>
+          <tr><td><div class="syn-site">Brand identity</div></td><td class="syn-prob">Two visual styles, two brand names, no shared identity.</td><td>One visual system, one hierarchy ("Dr. Santosh Bhatia at Vanity Cosmetic Clinic"), applied consistently across both sites.</td></tr>
+          <tr><td><div class="syn-site">Social handles</div></td><td class="syn-prob">@vanitycosmeticclinic on FB/YouTube, @drsantoshbhatia on Instagram. Fragmented attribution.</td><td>Unified strategy: @drsantoshbhatia as primary personal brand, @vanitycosmeticclinic as clinic brand. Both sites link both clearly.</td></tr>
+          <tr><td><div class="syn-site">Cross-linking</div></td><td class="syn-prob">Neither site links to the other. Visitors who find one never discover the other.</td><td>Personal site: "Book a consultation at Vanity Cosmetic Clinic →". Clinic site: "About Dr. Bhatia →" linking to expanded biography.</td></tr>
+          <tr><td><div class="syn-site">Trust assets</div></td><td class="syn-prob">2,000+ surgeries, global career, hospital affiliations — siloed or missing from both sites.</td><td>Every major trust asset appears on both sites, adapted to each site's role. Credentials in depth on personal site; summary strip on clinic site with "Read more →" link.</td></tr>
+          <tr><td><div class="syn-site">Booking flow</div></td><td class="syn-prob">Personal site has lightbox-calendar. Clinic site goes to contact page. Inconsistent, backwards.</td><td>Both sites use the same lightbox-calendar flow. Clinic site CTA pre-fills procedure context. Personal site routes to clinic site booking.</td></tr>
+          <tr><td><div class="syn-site">SEO architecture</div></td><td class="syn-prob">Personal site: zero procedure pages, wrong title tag, duplicate DOM. Clinic: procedure pages exist but thin.</td><td>Clear SEO division: clinic site owns all procedure + city keywords. Personal site owns doctor brand + expertise keywords. No cannibalisation.</td></tr>
+          <tr><td><div class="syn-site">Press & PR</div></td><td class="syn-prob">Neither site is press-ready. No media kit, no high-res assets, no press contact.</td><td>Personal site becomes the PR surface: full media kit, biography PDF, high-res photos. Clinic site references it: "For media enquiries, visit drsantoshbhatia.com/press."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="as" id="retainer">
+      <div class="sh"><div class="se">Monthly Partnership</div><div class="st">Growth Retainer</div></div>
+      <div class="card" style="margin-bottom:20px"><div class="card-label">What the retainer covers</div><p>The redesign delivers the foundation. The retainer ensures it performs and improves continuously. This is not an execution-heavy content production retainer — it is a <strong>strategy and performance partnership</strong>. We track what matters, interpret what's happening, and make the decisions that move the business forward.</p></div>
+      <div class="tier-grid">
+        <div class="tier">
+          <div class="tier-name">Foundation</div>
+          <div class="tier-price">₹45K <span>/ month</span></div>
+          <div class="tier-desc">Core tracking and monthly strategy session. Right for post-launch stabilisation.</div>
+          <ul class="tier-items">
+            <li>Monthly performance dashboard (both sites)</li>
+            <li>SEO rank tracking — 20 target keywords</li>
+            <li>Google Analytics + Search Console review</li>
+            <li>Monthly 60-min strategy call</li>
+            <li>1 blog post per month</li>
+            <li>Quarterly technical audit</li>
+            <li>Priority issue flagging within 48hrs</li>
+          </ul>
+        </div>
+        <div class="tier featured">
+          <div class="tier-badge">Recommended</div>
+          <div class="tier-name">Growth</div>
+          <div class="tier-price">₹85K <span>/ month</span></div>
+          <div class="tier-desc">Full strategic partnership for active brand growth and PR positioning.</div>
+          <ul class="tier-items">
+            <li>Everything in Foundation</li>
+            <li>SEO rank tracking — 50 keywords</li>
+            <li>Conversion rate monitoring + recommendations</li>
+            <li>2 blog posts per month</li>
+            <li>Bi-weekly strategy calls</li>
+            <li>Monthly competitor audit</li>
+            <li>PR opportunities identification + outreach brief</li>
+            <li>Paid campaign performance review</li>
+            <li>Quarterly brand perception audit</li>
+            <li>Annual redesign review + roadmap</li>
+          </ul>
+        </div>
+        <div class="tier">
+          <div class="tier-name">Authority</div>
+          <div class="tier-price">₹1.4L <span>/ month</span></div>
+          <div class="tier-desc">Full brand authority programme for becoming the category leader in Mumbai.</div>
+          <ul class="tier-items">
+            <li>Everything in Growth</li>
+            <li>4 blog posts per month</li>
+            <li>PR placement strategy + media outreach</li>
+            <li>Social content strategy (both handles)</li>
+            <li>Weekly strategy touchpoints</li>
+            <li>Link building strategy</li>
+            <li>International patient acquisition programme</li>
+            <li>Event / speaking opportunity identification</li>
+            <li>Video content strategy brief</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card"><div class="card-label">What the retainer is not</div><p>This retainer does not include execution of design changes, development work, ad spend management, photography, or video production. It is a strategy and oversight layer. We tell you what to build, track whether it's working, and refine the direction based on data.</p></div>
+    </div>
+
+    <div class="as" id="timeline">
+      <div class="sh"><div class="se">Delivery</div><div class="st">Project Timeline</div></div>
+      <div class="timeline">
+        <div class="tl-item act"><div class="tl-month">Month 1 — Weeks 1–2</div><div class="tl-title">Discovery & Brand System</div><div class="tl-desc">Brand hierarchy decision. Visual identity system finalised. Typography, colour, photography direction. Content audit of both sites. SEO keyword research for both domains.</div></div>
+        <div class="tl-item act"><div class="tl-month">Month 1 — Weeks 3–4</div><div class="tl-title">Personal Site Rebuild (drsantoshbhatia.com)</div><div class="tl-desc">Template replacement, duplicate DOM eliminated, German/church nav removed. Homepage redesigned to editorial brand story. All CTAs wired. Credibility bar implemented. Schema markup added.</div></div>
+        <div class="tl-item"><div class="tl-month">Month 2 — Weeks 1–3</div><div class="tl-title">Personal Site — New Pages + Launch</div><div class="tl-desc">Procedure landing pages (5 core procedures). Press/media kit page. Expanded About page. Before/After gallery. Lightbox mobile QA. Site 1 goes live.</div></div>
+        <div class="tl-item"><div class="tl-month">Month 2 — Week 4</div><div class="tl-title">Clinic Site — Homepage Redesign</div><div class="tl-desc">Discount offers removed. Static hero implemented. Credentials bar added. Navigation merged. Testimonials upgraded. NitroPack reconfigured. Booking flow upgraded to lightbox-calendar.</div></div>
+        <div class="tl-item"><div class="tl-month">Month 3 — Weeks 1–3</div><div class="tl-title">Clinic Site — Content Expansion + Launch</div><div class="tl-desc">Procedure pages expanded to 800+ words. 12 foundation blog posts published. International Patients page rebuilt. Schema markup sitewide. Site 2 goes live. Cross-site linking implemented.</div></div>
+        <div class="tl-item"><div class="tl-month">Month 3 — Week 4 onwards</div><div class="tl-title">Retainer Begins</div><div class="tl-desc">First monthly performance dashboard delivered. Baseline metrics established for both sites. Keyword rank tracking initiated. Monthly strategy cadence begins.</div></div>
+      </div>
+    </div>
+
+    <div class="as" id="investment">
+      <div class="sh"><div class="se">Pricing</div><div class="st">Investment</div></div>
+      <div class="inv-row">
+        <div class="inv-card"><div class="inv-label">Site 1 — drsantoshbhatia.com</div><div class="inv-amount">₹1,80,000</div><div class="inv-sub">One-time project fee. Complete redesign, rebuild, and new page creation. Includes 60 days of post-launch support.</div></div>
+        <div class="inv-card"><div class="inv-label">Site 2 — vanitycosmeticclinic.com</div><div class="inv-amount">₹2,40,000</div><div class="inv-sub">One-time project fee. Homepage redesign, technical fixes, content expansion (12 blog posts + procedure pages). Includes 60 days of post-launch support.</div></div>
+      </div>
+      <div class="inv-row">
+        <div class="inv-card featured"><div class="inv-label">Combined project (both sites)</div><div class="inv-amount">₹3,80,000</div><div class="inv-sub">Bundled fee — saves ₹40,000 vs separate. Unified delivery allows shared brand system to be built once and applied to both.</div></div>
+        <div class="inv-card"><div class="inv-label">Monthly retainer (Growth tier)</div><div class="inv-amount">₹85,000 <span style="font-size:16px;font-family:var(--fb);font-weight:300">/mo</span></div><div class="inv-sub">Recommended tier. Strategy, performance tracking, SEO monitoring, bi-weekly calls, 2 blog posts, PR identification. 6-month minimum commitment.</div></div>
+      </div>
+      <div class="card" style="margin-bottom:24px"><div class="card-label">Payment terms</div><ul>
+        <li>Project fee: 50% on engagement, 25% at midpoint review, 25% on launch</li>
+        <li>Retainer: monthly in advance, 6-month minimum, then rolling monthly</li>
+        <li>All fees in INR. GST applicable as per standard rates</li>
+        <li>Retainer begins in Month 3 upon both site launches</li>
+      </ul></div>
+      <div class="cta-block">
+        <h3>Ready to begin?</h3>
+        <p>This proposal is valid for 30 days from the date of issue. The next step is a 45-minute strategy call to align on scope, timeline, and any adjustments to the brief.</p>
+        <a class="cta-btn" href="mailto:hello@studio.com">Schedule the strategy call →</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const links=document.querySelectorAll('.sbk');
+const secs=document.querySelectorAll('.as');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));}});},{rootMargin:'-20% 0px -60% 0px'});
+secs.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

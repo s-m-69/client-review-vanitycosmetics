@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Report — drsantoshbhatia.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#E8C547;--accent-dim:#C9A832;--accent-pale:#FBF5DC;
+  --ink:#141210;--ink-2:#1E1C18;--ink-3:#3A3630;
+  --mid:#6B6560;--muted:#9E9890;--rule:#E2DDD6;
+  --surface:#F9F7F4;--surface-2:#F1EDE7;--surface-3:#E6E0D8;
+  --white:#FDFCFA;
+  --red:#B83030;--red-bg:#FAF0F0;
+  --amber:#9C5E0A;--amber-bg:#FDF4E8;
+  --green:#1E6B42;--green-bg:#EAF5EF;
+  --blue:#1A4A82;--blue-bg:#EBF1FA;
+  --fd:'Sora',sans-serif;
+  --fb:'Nunito Sans',sans-serif;
+  --r:4px;--rmd:8px;--rlg:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:var(--fb);background:var(--surface);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.bh{background:var(--white);border-bottom:1px solid var(--rule);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:200}
+.bl{display:flex;align-items:center;gap:10px;text-decoration:none}
+.blm{width:32px;height:32px;background:var(--ink);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.blm span{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-0.02em}
+.bw .name{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.bw .tag{font-size:10px;color:var(--muted);font-family:var(--fd);font-weight:400;letter-spacing:0.04em}
+.hr{display:flex;align-items:center;gap:8px}
+.ht{font-size:10px;font-family:var(--fd);font-weight:500;padding:4px 10px;border-radius:99px;background:var(--surface-2);color:var(--mid);letter-spacing:0.05em}
+.hta{background:var(--accent-pale);color:var(--accent-dim)}
+
+/* HERO */
+.hero{background:var(--ink-2);padding:64px 48px 52px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;bottom:0;width:3px;background:var(--accent)}
+.hero-eye{font-family:var(--fd);font-size:10px;font-weight:500;letter-spacing:0.14em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.hero-eye::before{content:'';width:28px;height:1px;background:var(--accent-dim)}
+.hero h1{font-family:var(--fd);font-size:44px;font-weight:700;color:var(--white);line-height:1.05;margin-bottom:6px;max-width:580px;letter-spacing:-.02em}
+.hero h1 span{font-weight:300;color:rgba(255,255,255,.55)}
+.hero-url{font-family:var(--fd);font-size:11px;font-weight:400;color:rgba(255,255,255,.25);margin-bottom:32px;letter-spacing:.02em}
+.hs{display:flex;gap:12px;flex-wrap:wrap}
+.hsc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:14px 18px;min-width:106px}
+.hsc .sl{font-size:9px;font-family:var(--fd);font-weight:500;letter-spacing:0.1em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:5px}
+.hsc .sv{font-family:var(--fd);font-size:26px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.hsc .ss{font-size:11px;font-family:var(--fb);font-weight:300;color:rgba(255,255,255,.3);margin-top:3px}
+.sv-r{color:#E07070}.sv-a{color:#DBA850}.sv-g{color:#6ACD96}
+
+/* LAYOUT */
+.pl{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 58px)}
+.sb{background:var(--white);border-right:1px solid var(--rule);padding:26px 0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto}
+.sb::-webkit-scrollbar{width:3px}
+.sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.sbl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:14px 22px 6px;display:block}
+.sbk{display:flex;align-items:center;justify-content:space-between;padding:8px 22px;font-size:12px;font-family:var(--fb);font-weight:400;color:var(--mid);text-decoration:none;border-left:2px solid transparent;transition:all .14s;gap:8px}
+.sbk:hover{color:var(--ink);background:var(--surface)}
+.sbk.active{color:var(--ink);font-weight:600;background:var(--accent-pale);border-left-color:var(--accent-dim)}
+.sb-badge{font-family:var(--fd);font-size:9px;font-weight:600;padding:2px 6px;border-radius:99px;flex-shrink:0}
+.sba{background:var(--red-bg);color:var(--red)}.sbb{background:var(--amber-bg);color:var(--amber)}.sbc{background:var(--green-bg);color:var(--green)}.sbd{background:var(--surface-2);color:var(--ink-3)}
+.sbdiv{height:1px;background:var(--rule);margin:12px 0}
+.sb-bars{padding:0 22px}
+.sb-bar-row{margin-bottom:10px}
+.sb-bar-row .lrow{display:flex;justify-content:space-between;font-size:10px;font-family:var(--fd);font-weight:500;color:var(--muted);margin-bottom:3px}
+.sb-bar-row .lrow .sc{color:var(--mid)}
+.bt{height:4px;background:var(--surface-3);border-radius:99px;overflow:hidden}
+.bf{height:100%;border-radius:99px}
+.bfr{background:#C85050}.bfa{background:#C87A20}.bfg{background:#3AA868}.bfacc{background:var(--accent-dim)}
+
+/* MAIN */
+.mc{padding:44px 56px 88px;max-width:860px}
+.as{margin-bottom:56px;scroll-margin-top:76px}
+.se{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.st{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.2}
+.sh{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--rule);gap:16px;flex-wrap:wrap}
+.sp{display:flex;align-items:center;gap:5px;padding:8px 14px;background:var(--surface-2);border:1px solid var(--rule);border-radius:var(--rlg);flex-shrink:0}
+.sp .n{font-family:var(--fd);font-size:24px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.sp .d{font-size:13px;font-family:var(--fb);color:var(--muted)}
+.nr{color:var(--red)}.na{color:var(--amber)}.ng{color:var(--green)}
+
+/* FINDING CARDS */
+.fc{border-radius:var(--rlg);padding:18px 22px;margin-bottom:12px;border:1px solid transparent}
+.fcc{background:var(--red-bg);border-color:rgba(184,48,48,.12)}
+.fcw{background:var(--amber-bg);border-color:rgba(156,94,10,.12)}
+.fco{background:var(--green-bg);border-color:rgba(30,107,66,.12)}
+.fci{background:var(--blue-bg);border-color:rgba(26,74,130,.12)}
+.fl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.fl::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.fcc .fl{color:var(--red)}.fcc .fl::before{background:var(--red)}
+.fcw .fl{color:var(--amber)}.fcw .fl::before{background:var(--amber)}
+.fco .fl{color:var(--green)}.fco .fl::before{background:var(--green)}
+.fci .fl{color:var(--blue)}.fci .fl::before{background:var(--blue)}
+.fc p,.fc li{font-size:14px;font-family:var(--fb);font-weight:400;line-height:1.7;color:var(--ink-3)}
+.fc ul{padding-left:18px}
+.fc li{margin-bottom:5px}
+.fc li:last-child{margin-bottom:0}
+.fc strong{font-weight:700;color:var(--ink-2)}
+code{font-family:var(--fd);font-size:.78em;font-weight:500;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:3px}
+
+/* VERDICT */
+.vd{background:var(--ink);border-radius:var(--rlg);padding:24px 28px;margin-bottom:22px;border-left:3px solid var(--accent)}
+.vdl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:9px}
+.vd p{font-family:var(--fb);font-weight:300;font-style:italic;font-size:16px;color:rgba(255,255,255,.75);line-height:1.7}
+
+/* SCORE TABLE */
+.st-tbl{width:100%;border-collapse:collapse;border-radius:var(--rlg);overflow:hidden;border:1px solid var(--rule);margin-bottom:26px}
+.st-tbl th{background:var(--ink);color:rgba(255,255,255,.5);font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:11px 16px;text-align:left}
+.st-tbl td{padding:10px 16px;font-size:13px;font-family:var(--fb);color:var(--ink-3);border-bottom:1px solid var(--surface-2);background:var(--white)}
+.st-tbl tr:last-child td{border-bottom:none}
+.st-tbl tr:hover td{background:var(--surface)}
+.bar2{display:flex;align-items:center;gap:8px}
+.bt2{flex:1;height:4px;background:var(--surface-3);border-radius:99px;overflow:hidden}
+.bf2{height:100%;border-radius:99px}
+.bfr2{background:#C85050}.bfa2{background:#C87A20}.bfg2{background:#3AA868}
+.bnum{font-family:var(--fd);font-size:11px;font-weight:600;min-width:28px}
+
+/* PRIORITY */
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:10px;margin-top:8px}
+.pc{background:var(--white);border:1px solid var(--rule);border-radius:var(--rlg);padding:15px 17px;border-top:2px solid var(--rule)}
+.pc.ph{border-top-color:var(--red)}.pc.pm{border-top-color:var(--amber)}.pc.pl{border-top-color:var(--green)}
+.pi{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+.pc.ph .pi{color:var(--red)}.pc.pm .pi{color:var(--amber)}.pc.pl .pi{color:var(--green)}
+.ptit{font-size:13px;font-family:var(--fd);font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.3;letter-spacing:-.01em}
+.pwhy{font-size:12px;font-family:var(--fb);font-weight:400;color:var(--mid);line-height:1.55}
+.ph-label{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin:24px 0 10px}
+.pm-label{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin:24px 0 10px}
+.pl-label{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:24px 0 10px}
+
+.corr{background:var(--green-bg);border:1px solid rgba(30,107,66,.2);border-radius:var(--rlg);padding:12px 17px;margin-bottom:13px;font-size:13px;font-family:var(--fb);color:#1A5C35;line-height:1.6}
+.rule{height:1px;background:var(--rule);margin:14px 0}
+@media(max-width:860px){.pl{grid-template-columns:1fr}.sb{display:none}.mc{padding:28px 20px 60px}.bh{padding:0 20px}.hero{padding:44px 20px 40px}}
+</style>
+</head>
+<body>
+
+<header class="bh">
+  <a class="bl" href="#">
+    <div class="blm"><span>S</span></div>
+    <div class="bw">
+      <div class="name">Studio / Audit</div>
+      <div class="tag">digital strategy · growth</div>
+    </div>
+  </a>
+  <div class="hr">
+    <span class="ht">CONFIDENTIAL</span>
+    <span class="ht hta">APRIL 2025</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eye">Audit Report — Personal Brand Site · 01 of 02</div>
+  <h1>Dr. Santosh Bhatia<br><span>Personal Website</span></h1>
+  <div class="hero-url">drsantoshbhatia.com</div>
+  <div class="hs">
+    <div class="hsc"><div class="sl">Overall</div><div class="sv sv-a">5.2</div><div class="ss">Needs urgent work</div></div>
+    <div class="hsc"><div class="sl">Trust</div><div class="sv sv-a">5.0</div><div class="ss">Weak signals</div></div>
+    <div class="hsc"><div class="sl">UX</div><div class="sv sv-a">5.0</div><div class="ss">Structural flaws</div></div>
+    <div class="hsc"><div class="sl">SEO</div><div class="sv sv-r">4.0</div><div class="ss">Major gaps</div></div>
+    <div class="hsc"><div class="sl">Conversion</div><div class="sv sv-g">6.0</div><div class="ss">Revised upward ↑</div></div>
+    <div class="hsc"><div class="sl">PR Ready</div><div class="sv sv-r">3.0</div><div class="ss">Fails the test</div></div>
+  </div>
+</div>
+
+<div class="pl">
+  <aside class="sb">
+    <span class="sbl">Sections</span>
+    <a class="sbk" href="#overview">Overview</a>
+    <a class="sbk" href="#s1">1 · First Impressions <span class="sb-badge sbb">5/10</span></a>
+    <a class="sbk" href="#s2">2 · UI / UX <span class="sb-badge sbb">5/10</span></a>
+    <a class="sbk" href="#s3">3 · Architecture <span class="sb-badge sbb">5.5/10</span></a>
+    <a class="sbk" href="#s4">4 · Conversion <span class="sb-badge sbc">6/10</span></a>
+    <a class="sbk" href="#s5">5 · SEO <span class="sb-badge sba">4/10</span></a>
+    <a class="sbk" href="#s6">6 · Performance <span class="sb-badge sbb">4.5/10</span></a>
+    <a class="sbk" href="#s7">7 · Accessibility <span class="sb-badge sba">4/10</span></a>
+    <a class="sbk" href="#s8">8 · PR & Brand <span class="sb-badge sba">3/10</span></a>
+    <a class="sbk active" href="#s9">9 · Action Plan <span class="sb-badge sbd">16 items</span></a>
+    <div class="sbdiv"></div>
+    <span class="sbl">Score Summary</span>
+    <div class="sb-bars">
+      <div class="sb-bar-row"><div class="lrow"><span>Overall</span><span class="sc">5.2</span></div><div class="bt"><div class="bf bfa" style="width:52%"></div></div></div>
+      <div class="sb-bar-row"><div class="lrow"><span>SEO</span><span class="sc">4.0</span></div><div class="bt"><div class="bf bfr" style="width:40%"></div></div></div>
+      <div class="sb-bar-row"><div class="lrow"><span>Conversion</span><span class="sc">6.0</span></div><div class="bt"><div class="bf bfg" style="width:60%"></div></div></div>
+      <div class="sb-bar-row"><div class="lrow"><span>PR Ready</span><span class="sc">3.0</span></div><div class="bt"><div class="bf bfr" style="width:30%"></div></div></div>
+    </div>
+  </aside>
+
+  <main class="mc">
+    <div class="as" id="overview">
+      <div class="sh"><div><div class="se">Overview</div><div class="st">Scorecard</div></div></div>
+      <div class="vd">
+        <div class="vdl">Overall Verdict</div>
+        <p>"The credentials are genuinely impressive — MCh, global career, 2,000+ surgeries. None of it is being used. The site is a missed opportunity wrapped in a template that was never properly cleaned. Fix the structural failures first, then rebuild the narrative."</p>
+      </div>
+      <table class="st-tbl">
+        <thead><tr><th>Dimension</th><th>Score</th><th style="width:180px">Visual</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>First Impressions & Trust</td><td><span class="bnum na">5/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:50%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">WEAK</td></tr>
+          <tr><td>UI / UX</td><td><span class="bnum na">5/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:50%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">BROKEN AREAS</td></tr>
+          <tr><td>Information Architecture</td><td><span class="bnum na">5.5/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:55%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">INCOMPLETE</td></tr>
+          <tr><td>Lead Gen & Conversion</td><td><span class="bnum ng">6/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfg2" style="width:60%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--green)">REVISED ↑</td></tr>
+          <tr><td>SEO & Discoverability</td><td><span class="bnum nr">4/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfr2" style="width:40%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--red)">CRITICAL</td></tr>
+          <tr><td>Performance & Speed</td><td><span class="bnum na">4.5/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:45%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">SLOW</td></tr>
+          <tr><td>Accessibility</td><td><span class="bnum nr">4/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfr2" style="width:40%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--red)">CRITICAL</td></tr>
+          <tr><td>PR & Brand Perception</td><td><span class="bnum nr">3/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfr2" style="width:30%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--red)">FAILS</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="as" id="s1">
+      <div class="sh"><div><div class="se">01 / 08</div><div class="st">First Impressions & Trust Signals</div></div><div class="sp"><span class="n na">5</span><span class="d">/10</span></div></div>
+      <div class="fc fci"><div class="fl">5-Second Read</div><p>The hero communicates "cosmetic surgeon in Mumbai" but feels generic immediately. "Beyond beauty" is forgettable. No proof point above the fold — no "2,000+ surgeries," no "board-certified MCh," no press logos. A prospective patient has no reason to stay.</p></div>
+      <div class="fc fcc"><div class="fl">Critical Trust Failures</div><ul>
+        <li>MCh qualification and 10+ years experience exist on the About page — <strong>invisible on the homepage</strong>. In medical aesthetics, qualifications are table stakes.</li>
+        <li>Hospital affiliations (Breach Candy, SBS Health) buried on About. They should anchor the hero.</li>
+        <li>Footer says <strong>"Copyright © 2024. Mktg.doctor"</strong> — a marketing agency name. Destroys trust for any sophisticated visitor.</li>
+        <li>No awards, ISAPS / APSI memberships, media logos, or "As seen in" strip anywhere.</li>
+        <li>Testimonial avatars are tiny, generic PNG silhouettes — not real patient photos.</li>
+        <li>"2,000+ organic followers" advertised as a differentiator. Remove it entirely.</li>
+      </ul></div>
+      <div class="fc fco"><div class="fl">What Works</div><ul>
+        <li>WhatsApp CTA in the header — smart and conversion-relevant for India.</li>
+        <li>FAQ section is comprehensive and addresses real patient fears about cosmetic surgery.</li>
+        <li>YRF Studios proximity mention is a clever implied celebrity association — needs far more prominence.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s2">
+      <div class="sh"><div><div class="se">02 / 08</div><div class="st">UI / UX Evaluation</div></div><div class="sp"><span class="n na">5</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">Broken / Amateur — Fix Immediately</div><ul>
+        <li><strong>Duplicate content throughout the page source</strong> — every section appears twice in the HTML. Two hero sections, two feature sections. A catastrophic build error from layering two Webflow templates.</li>
+        <li>Navigation contains orphaned links: "Calvary", "01 About / 02 Contact / 03 / 05 / 05 / 05" — Webflow church website template remnants. Visible in DOM.</li>
+        <li>Mobile menu has German-language links: "Projekte / Podcast / Premium Zugang / Blog / Kontakt." Never replaced. Visible to every mobile user.</li>
+        <li>A live <code>placeholder.svg</code> image renders on the homepage under "For the Sophisticated You."</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">UX Issues</div><ul>
+        <li>Typography inconsistent — H1, H2, H3 used interchangeably for sizing, not semantic hierarchy.</li>
+        <li>Hero is a stock photo. A real patient result or clinical portrait of Dr. Bhatia would perform significantly better.</li>
+        <li>"Listen the feedbacks" — grammatical error in a section heading.</li>
+        <li>Video testimonials are screenshots, not embedded players. Missed trust and dwell-time opportunity.</li>
+        <li>Page is extremely long with no sticky progress indicator or anchor navigation.</li>
+      </ul></div>
+      <div class="fc fco"><div class="fl">What Works</div><ul>
+        <li>Service categorisation (Face / Breast / Body / Complete Solutions) is logical and user-centric.</li>
+        <li>3D consultation section is a genuine differentiator — worth making a hero feature.</li>
+        <li>FAQ section is comprehensive and well-structured.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s3">
+      <div class="sh"><div><div class="se">03 / 08</div><div class="st">Information Architecture & Structure</div></div><div class="sp"><span class="n na">5.5</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">Homepage Flow Problems</div><ul>
+        <li>Serves discovery, consideration, and conversion simultaneously — fails at all three. Too long, too repetitive, no narrative arc.</li>
+        <li>The "Does this resonate?" section renders 4 consecutive H1 tags with repeated body text — looks broken on the page.</li>
+        <li>No "why Dr. Bhatia vs. competitor X" section. Zero comparative positioning beyond generic copy.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Missing Pages & Navigation Failures</div><ul>
+        <li>All service nav links (Face, Breast, Body) point to <code>#</code> — no procedure landing pages exist. Kills SEO and high-intent conversion simultaneously.</li>
+        <li>No filterable Before/After gallery — the #1 trust driver for cosmetic surgery sites.</li>
+        <li>Blog listed in footer Quick Links is a dead link. Media/Press page in nav leads nowhere.</li>
+        <li>No pricing page — even a "Starting from ₹X" anchor helps conversion and filters unqualified leads.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s4">
+      <div class="sh"><div><div class="se">04 / 08</div><div class="st">Lead Generation & Conversion</div></div><div class="sp"><span class="n ng">6</span><span class="d">/10</span></div></div>
+      <div class="corr"><strong>Correction applied:</strong> CTAs are functional via JavaScript lightbox with integrated booking calendar. The <code>href="#"</code> values in source are intentional — not dead links. Score revised 4 → 6.</div>
+      <div class="fc fco"><div class="fl">Conversion Strengths</div><ul>
+        <li>Lightbox-with-calendar is the right pattern for elective medical bookings — removes the phone call as the only entry point.</li>
+        <li>Multiple CTA placements mean the booking trigger is available throughout the scroll journey.</li>
+        <li>WhatsApp in the header provides a parallel low-friction contact path.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Confirmed Gaps</div><ul>
+        <li>WhatsApp opens a blank chat with no pre-populated message — confirmed friction point.</li>
+        <li>"Talk to us" in footer and "Still in doubts?" in FAQ resolve to <code>#</code> with no JS handler — confirmed dead, not connected to the lightbox.</li>
+        <li>No email newsletter or lead magnet — zero re-engagement path for visitors who browse and leave.</li>
+        <li>No social proof adjacent to the CTA. A single stat or testimonial beside the booking button would lift conversion measurably.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s5">
+      <div class="sh"><div><div class="se">05 / 08</div><div class="st">SEO & Discoverability</div></div><div class="sp"><span class="n nr">4</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">Critical SEO Failures</div><ul>
+        <li>Homepage title tag is <strong>"Tummy Tuck Surgery"</strong> — a single procedure keyword, actively harmful. Should be: "Dr. Santosh Bhatia — Plastic & Cosmetic Surgeon in Mumbai."</li>
+        <li>No individual procedure landing pages. "Rhinoplasty Mumbai," "breast augmentation Mumbai" — high-intent terms the site cannot rank for.</li>
+        <li>Duplicate HTML sections will trigger Google duplicate content penalties.</li>
+        <li>Multiple H1 tags per page — Google can only meaningfully use one.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">On-Page Gaps</div><ul>
+        <li>No meta description set for the homepage.</li>
+        <li>Images named generically (<code>indian-model.jpg</code>, <code>unnamed-4.png</code>) — zero SEO value. Alt text absent on most.</li>
+        <li>No Schema markup for LocalBusiness, Physician, or Review — rich snippets not being earned.</li>
+        <li>No location-specific content targeting Andheri, South Bombay, or Mumbai catchment areas.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s6">
+      <div class="sh"><div><div class="se">06 / 08</div><div class="st">Performance & Page Speed</div></div><div class="sp"><span class="n na">4.5</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">Performance Issues</div><ul>
+        <li>Hero image likely not WebP-converted or sized for mobile — stock photography delivers unoptimised high-res JPEGs.</li>
+        <li>Entire page content duplicated in HTML — doubles document size, increases parse time significantly.</li>
+        <li>No lazy loading on testimonial images — all loaded on page init.</li>
+        <li>Screenshot images used for video testimonials — unoptimised, likely uncompressed PNGs.</li>
+        <li>Target LCP under 2.5s on mobile. Estimated current: <strong>4–6s</strong> given unoptimised hero + double DOM.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s7">
+      <div class="sh"><div><div class="se">07 / 08</div><div class="st">Accessibility</div></div><div class="sp"><span class="n nr">4</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">Critical Accessibility Failures</div><ul>
+        <li>Social media icons use SVG images with no alt text — screen readers cannot identify them.</li>
+        <li>Multiple CTA buttons link to <code>#</code> with no aria-label — assistive tech reads them as "link, hash."</li>
+        <li>Testimonial avatar images and logo images have no alt text.</li>
+        <li>Duplicate H1 tags and semantic heading chaos creates a broken document outline for screen readers.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Usability Concerns</div><ul>
+        <li>No skip-to-content link for keyboard users. No visible focus states — likely stripped by the theme CSS.</li>
+        <li>FAQ accordion items should have proper aria-expanded attributes for screen reader compatibility.</li>
+        <li>Color contrast on light-grey text against white may not meet WCAG AA (4.5:1 minimum).</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s8">
+      <div class="sh"><div><div class="se">08 / 08</div><div class="st">PR & Brand Perception</div></div><div class="sp"><span class="n nr">3</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">PR Readiness: Fails the Test</div><ul>
+        <li>A Vogue India editor landing here would not write about it. No media kit, no press section, no "as featured in" strip, no high-res photos, no biography PDF.</li>
+        <li>Brand voice switches between aspirational ("For the Sophisticated You") and chatty ("Still in doubts?") — no consistent tone of authority.</li>
+        <li>"Mktg.doctor" copyright exposes the white-label agency — breaks the personal brand illusion entirely.</li>
+        <li>Brand identity fragmented: "Dr. Santosh Bhatia" vs "Vanity Cosmetic Clinic" used interchangeably with no hierarchy.</li>
+        <li>The celebrity angle (YRF Studios, "high-profile celebrities") is an incredible PR asset — buried in body copy.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Differentiation Gaps</div><ul>
+        <li>Every competitor uses identical language: "natural-looking," "compassionate," "state-of-the-art." No differentiation.</li>
+        <li>The global career narrative (New York, London, Toronto, Chicago, Miami) — completely absent from the homepage. The single most powerful trust signal on the site, hidden on About.</li>
+        <li>3D imaging is a real differentiator no competitor leads with. Should be a hero feature.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s9">
+      <div class="sh"><div><div class="se">Action Plan</div><div class="st">Priority Actions</div></div></div>
+      <p style="font-size:13px;font-family:var(--fb);color:var(--mid);margin-bottom:20px">Do not skip high-impact items to do medium-impact ones. Sequence matters.</p>
+      <div class="ph-label">🔴 Fix Immediately</div>
+      <div class="pg">
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Remove German / church template residue</div><div class="pwhy">Mobile nav has German-language links and "Calvary" church menu items. Trust-destroying and visible to every mobile visitor.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Fix the homepage title tag</div><div class="pwhy">"Tummy Tuck Surgery" as a homepage title is an SEO disaster. Replace with the doctor's name + specialty + city.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Remove duplicate HTML sections</div><div class="pwhy">Every section renders twice. Doubles page weight, causes SEO duplicate content penalties, and risks visual glitches.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Replace "Mktg.doctor" copyright</div><div class="pwhy">Exposes the white-label agency in the footer. Change to "© 2025 Dr. Santosh Bhatia / Vanity Cosmetic Clinic."</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Wire footer & FAQ CTAs to lightbox</div><div class="pwhy">"Talk to us" and "Still in doubts?" resolve to # with no JS handler. Confirmed dead — not connected to the booking flow.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Pre-fill the WhatsApp CTA</div><div class="pwhy">Header WhatsApp opens a blank chat. Add pre-populated text: "Hi, I'd like to book a consultation with Dr. Bhatia."</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Add alt text to all images</div><div class="pwhy">Every testimonial avatar, logo, and social icon missing alt text. Accessibility compliance failure and SEO signal loss.</div></div>
+      </div>
+      <div class="pm-label">🟡 Within 30 Days</div>
+      <div class="pg">
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Audit lightbox on mobile</div><div class="pwhy">Calendar widgets break on Android Chrome and iOS Safari. Test every booking step on real devices.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Add procedure selector in lightbox</div><div class="pwhy">Ask for procedure intent before showing calendar slots. Qualifies the lead, helps team prep.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Add homepage hero credibility bar</div><div class="pwhy">MCh, 10+ years, 2,000+ surgeries, global career cities — none visible above the fold.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Build procedure landing pages</div><div class="pwhy">Rhinoplasty Mumbai, breast augmentation Mumbai — high-intent keywords. Without dedicated pages the site is invisible in search.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Add Schema markup</div><div class="pwhy">LocalBusiness, Physician, and Review structured data. Unlocks Google star ratings in search.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Consolidate brand identity</div><div class="pwhy">Decide: Dr. Santosh Bhatia or Vanity Cosmetic Clinic? Unify across all pages, social handles, and footer.</div></div>
+      </div>
+      <div class="pl-label">🟢 Long-Term</div>
+      <div class="pg">
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Add sticky mobile booking bar</div><div class="pwhy">A fixed bottom bar on mobile captures users who scroll without clicking the hero CTA.</div></div>
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Build a press / media kit page</div><div class="pwhy">High-res photos, biography PDF, notable cases, journalist contact. Required for press coverage.</div></div>
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Email capture + lead magnet</div><div class="pwhy">A "Consultation Guide" PDF builds a re-engagement list from visitors who browse but don't book.</div></div>
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Launch SEO content blog</div><div class="pwhy">Target research-phase keywords to capture early-funnel patients before competitors do.</div></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const links=document.querySelectorAll('.sbk');
+const secs=document.querySelectorAll('.as');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));}});},{rootMargin:'-20% 0px -60% 0px'});
+secs.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

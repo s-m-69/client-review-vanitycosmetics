@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Report — vanitycosmeticclinic.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#E8C547;--accent-dim:#C9A832;--accent-pale:#FBF5DC;
+  --ink:#141210;--ink-2:#1E1C18;--ink-3:#3A3630;
+  --mid:#6B6560;--muted:#9E9890;--rule:#E2DDD6;
+  --surface:#F9F7F4;--surface-2:#F1EDE7;--surface-3:#E6E0D8;
+  --white:#FDFCFA;
+  --red:#B83030;--red-bg:#FAF0F0;
+  --amber:#9C5E0A;--amber-bg:#FDF4E8;
+  --green:#1E6B42;--green-bg:#EAF5EF;
+  --blue:#1A4A82;--blue-bg:#EBF1FA;
+  --fd:'Sora',sans-serif;--fb:'Nunito Sans',sans-serif;
+  --r:4px;--rmd:8px;--rlg:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:var(--fb);background:var(--surface);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+.bh{background:var(--white);border-bottom:1px solid var(--rule);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:200}
+.bl{display:flex;align-items:center;gap:10px;text-decoration:none}
+.blm{width:32px;height:32px;background:var(--ink);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.blm span{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-0.02em}
+.bw .name{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.bw .tag{font-size:10px;color:var(--muted);font-family:var(--fd);font-weight:400;letter-spacing:0.04em}
+.hr{display:flex;align-items:center;gap:8px}
+.ht{font-size:10px;font-family:var(--fd);font-weight:500;padding:4px 10px;border-radius:99px;background:var(--surface-2);color:var(--mid);letter-spacing:0.05em}
+.hta{background:var(--accent-pale);color:var(--accent-dim)}
+.hero{background:var(--surface-2);padding:64px 48px 52px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--accent)}
+.hero::after{content:'VCC';position:absolute;right:40px;bottom:-20px;font-family:var(--fd);font-size:140px;font-weight:700;color:rgba(0,0,0,.03);line-height:1;pointer-events:none;user-select:none;letter-spacing:-.04em}
+.hero-eye{font-family:var(--fd);font-size:10px;font-weight:500;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.hero-eye::before{content:'';width:28px;height:1px;background:var(--accent-dim)}
+.hero h1{font-family:var(--fd);font-size:44px;font-weight:700;color:var(--ink);line-height:1.05;margin-bottom:6px;max-width:580px;letter-spacing:-.02em}
+.hero h1 span{font-weight:300;color:var(--mid)}
+.hero-url{font-family:var(--fd);font-size:11px;font-weight:400;color:var(--muted);margin-bottom:32px;letter-spacing:.02em}
+.hs{display:flex;gap:12px;flex-wrap:wrap}
+.hsc{background:var(--white);border:1px solid var(--rule);border-radius:var(--rlg);padding:14px 18px;min-width:106px}
+.hsc .sl{font-size:9px;font-family:var(--fd);font-weight:500;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-bottom:5px}
+.hsc .sv{font-family:var(--fd);font-size:26px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.hsc .ss{font-size:11px;font-family:var(--fb);font-weight:300;color:var(--muted);margin-top:3px}
+.sv-r{color:var(--red)}.sv-a{color:var(--amber)}.sv-g{color:var(--green)}
+.pl{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 58px)}
+.sb{background:var(--white);border-right:1px solid var(--rule);padding:26px 0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto}
+.sb::-webkit-scrollbar{width:3px}
+.sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.sbl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:14px 22px 6px;display:block}
+.sbk{display:flex;align-items:center;justify-content:space-between;padding:8px 22px;font-size:12px;font-family:var(--fb);font-weight:400;color:var(--mid);text-decoration:none;border-left:2px solid transparent;transition:all .14s;gap:8px}
+.sbk:hover{color:var(--ink);background:var(--surface)}
+.sbk.active{color:var(--ink);font-weight:600;background:var(--accent-pale);border-left-color:var(--accent-dim)}
+.sb-badge{font-family:var(--fd);font-size:9px;font-weight:600;padding:2px 6px;border-radius:99px;flex-shrink:0}
+.sba{background:var(--red-bg);color:var(--red)}.sbb{background:var(--amber-bg);color:var(--amber)}.sbc{background:var(--green-bg);color:var(--green)}.sbd{background:var(--surface-2);color:var(--ink-3)}
+.sbdiv{height:1px;background:var(--rule);margin:12px 0}
+.sb-bars{padding:0 22px}
+.sb-bar-row{margin-bottom:10px}
+.sb-bar-row .lrow{display:flex;justify-content:space-between;font-size:10px;font-family:var(--fd);font-weight:500;color:var(--muted);margin-bottom:3px}
+.sb-bar-row .lrow .sc{color:var(--mid)}
+.bt{height:4px;background:var(--surface-3);border-radius:99px;overflow:hidden}
+.bf{height:100%;border-radius:99px}
+.bfr{background:#C85050}.bfa{background:#C87A20}.bfg{background:#3AA868}.bfacc{background:var(--accent-dim)}
+.comp-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.comp-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--rlg);padding:16px 18px}
+.comp-label{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
+.comp-card.better .comp-label{color:var(--green)}.comp-card.worse .comp-label{color:var(--red)}
+.comp-card p{font-size:13px;font-family:var(--fb);color:var(--ink-3);line-height:1.6}
+.mc{padding:44px 56px 88px;max-width:860px}
+.as{margin-bottom:56px;scroll-margin-top:76px}
+.se{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.st{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.2}
+.sh{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--rule);gap:16px;flex-wrap:wrap}
+.sp{display:flex;align-items:center;gap:5px;padding:8px 14px;background:var(--surface-2);border:1px solid var(--rule);border-radius:var(--rlg);flex-shrink:0}
+.sp .n{font-family:var(--fd);font-size:24px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.sp .d{font-size:13px;font-family:var(--fb);color:var(--muted)}
+.nr{color:var(--red)}.na{color:var(--amber)}.ng{color:var(--green)}
+.fc{border-radius:var(--rlg);padding:18px 22px;margin-bottom:12px;border:1px solid transparent}
+.fcc{background:var(--red-bg);border-color:rgba(184,48,48,.12)}.fcw{background:var(--amber-bg);border-color:rgba(156,94,10,.12)}.fco{background:var(--green-bg);border-color:rgba(30,107,66,.12)}.fci{background:var(--blue-bg);border-color:rgba(26,74,130,.12)}
+.fl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.fl::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.fcc .fl{color:var(--red)}.fcc .fl::before{background:var(--red)}
+.fcw .fl{color:var(--amber)}.fcw .fl::before{background:var(--amber)}
+.fco .fl{color:var(--green)}.fco .fl::before{background:var(--green)}
+.fci .fl{color:var(--blue)}.fci .fl::before{background:var(--blue)}
+.fc p,.fc li{font-size:14px;font-family:var(--fb);font-weight:400;line-height:1.7;color:var(--ink-3)}
+.fc ul{padding-left:18px}
+.fc li{margin-bottom:5px}.fc li:last-child{margin-bottom:0}
+.fc strong{font-weight:700;color:var(--ink-2)}
+code{font-family:var(--fd);font-size:.78em;font-weight:500;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:3px}
+.vd{background:var(--ink);border-radius:var(--rlg);padding:24px 28px;margin-bottom:22px;border-left:3px solid var(--accent)}
+.vdl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:9px}
+.vd p{font-family:var(--fb);font-weight:300;font-style:italic;font-size:16px;color:rgba(255,255,255,.75);line-height:1.7}
+.st-tbl{width:100%;border-collapse:collapse;border-radius:var(--rlg);overflow:hidden;border:1px solid var(--rule);margin-bottom:22px}
+.st-tbl th{background:var(--ink);color:rgba(255,255,255,.5);font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:11px 16px;text-align:left}
+.st-tbl td{padding:10px 16px;font-size:13px;font-family:var(--fb);color:var(--ink-3);border-bottom:1px solid var(--surface-2);background:var(--white)}
+.st-tbl tr:last-child td{border-bottom:none}.st-tbl tr:hover td{background:var(--surface)}
+.bar2{display:flex;align-items:center;gap:8px}
+.bt2{flex:1;height:4px;background:var(--surface-3);border-radius:99px;overflow:hidden}
+.bf2{height:100%;border-radius:99px}
+.bfr2{background:#C85050}.bfa2{background:#C87A20}.bfg2{background:#3AA868}.bfacc2{background:var(--accent-dim)}
+.bnum{font-family:var(--fd);font-size:11px;font-weight:600;min-width:28px}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:10px;margin-top:8px}
+.pc{background:var(--white);border:1px solid var(--rule);border-radius:var(--rlg);padding:15px 17px;border-top:2px solid var(--rule)}
+.pc.ph{border-top-color:var(--red)}.pc.pm{border-top-color:var(--amber)}.pc.pl{border-top-color:var(--green)}
+.pi{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+.pc.ph .pi{color:var(--red)}.pc.pm .pi{color:var(--amber)}.pc.pl .pi{color:var(--green)}
+.ptit{font-size:13px;font-family:var(--fd);font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.3;letter-spacing:-.01em}
+.pwhy{font-size:12px;font-family:var(--fb);font-weight:400;color:var(--mid);line-height:1.55}
+.ph-label{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin:24px 0 10px}
+.pm-label{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin:24px 0 10px}
+.pl-label{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:24px 0 10px}
+.rule{height:1px;background:var(--rule);margin:14px 0}
+@media(max-width:860px){.pl{grid-template-columns:1fr}.sb{display:none}.mc{padding:28px 20px 60px}.bh{padding:0 20px}.hero{padding:44px 20px 40px}.comp-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="bh">
+  <a class="bl" href="#"><div class="blm"><span>S</span></div><div class="bw"><div class="name">Studio / Audit</div><div class="tag">digital strategy · growth</div></div></a>
+  <div class="hr"><span class="ht">CONFIDENTIAL</span><span class="ht hta">APRIL 2025</span></div>
+</header>
+
+<div class="hero">
+  <div class="hero-eye">Audit Report — Clinic Site · 02 of 02</div>
+  <h1>Vanity Cosmetic<br><span>Clinic</span></h1>
+  <div class="hero-url">vanitycosmeticclinic.com</div>
+  <div class="hs">
+    <div class="hsc"><div class="sl">Overall</div><div class="sv sv-a">6.4</div><div class="ss">Functional, not premium</div></div>
+    <div class="hsc"><div class="sl">Trust</div><div class="sv sv-a">6.5</div><div class="ss">Solid base, weak peak</div></div>
+    <div class="hsc"><div class="sl">UX</div><div class="sv sv-a">6.0</div><div class="ss">Works, not delightful</div></div>
+    <div class="hsc"><div class="sl">SEO</div><div class="sv sv-g">7.0</div><div class="ss">Best asset on site</div></div>
+    <div class="hsc"><div class="sl">Conversion</div><div class="sv sv-a">6.0</div><div class="ss">Discounts undermine brand</div></div>
+    <div class="hsc"><div class="sl">PR Ready</div><div class="sv sv-r">4.0</div><div class="ss">Not press-ready</div></div>
+  </div>
+</div>
+
+<div class="pl">
+  <aside class="sb">
+    <span class="sbl">Sections</span>
+    <a class="sbk" href="#overview">Overview</a>
+    <a class="sbk" href="#s1">1 · First Impressions <span class="sb-badge sbb">6.5/10</span></a>
+    <a class="sbk" href="#s2">2 · UI / UX <span class="sb-badge sbb">6/10</span></a>
+    <a class="sbk" href="#s3">3 · Architecture <span class="sb-badge sbc">7/10</span></a>
+    <a class="sbk" href="#s4">4 · Conversion <span class="sb-badge sbb">6/10</span></a>
+    <a class="sbk" href="#s5">5 · SEO <span class="sb-badge sbc">7/10</span></a>
+    <a class="sbk" href="#s6">6 · Performance <span class="sb-badge sbb">5.5/10</span></a>
+    <a class="sbk" href="#s7">7 · Accessibility <span class="sb-badge sba">5/10</span></a>
+    <a class="sbk" href="#s8">8 · PR & Brand <span class="sb-badge sba">4/10</span></a>
+    <a class="sbk active" href="#s9">9 · Action Plan <span class="sb-badge sbd">15 items</span></a>
+    <div class="sbdiv"></div>
+    <span class="sbl">vs Personal Site</span>
+    <div class="sb-bars">
+      <div class="sb-bar-row"><div class="lrow"><span>Overall</span><span class="sc" style="color:var(--green)">+1.2 ↑</span></div><div class="bt"><div class="bf bfg" style="width:64%"></div></div></div>
+      <div class="sb-bar-row"><div class="lrow"><span>SEO</span><span class="sc" style="color:var(--green)">+3.0 ↑</span></div><div class="bt"><div class="bf bfg" style="width:70%"></div></div></div>
+      <div class="sb-bar-row"><div class="lrow"><span>PR</span><span class="sc" style="color:var(--green)">+1.0 ↑</span></div><div class="bt"><div class="bf bfg" style="width:40%"></div></div></div>
+      <div class="sb-bar-row"><div class="lrow"><span>Conversion</span><span class="sc">= 0</span></div><div class="bt"><div class="bf bfacc" style="width:60%"></div></div></div>
+    </div>
+  </aside>
+
+  <main class="mc">
+    <div class="as" id="overview">
+      <div class="sh"><div><div class="se">Overview</div><div class="st">Scorecard</div></div></div>
+      <div class="vd"><div class="vdl">Overall Verdict</div><p>"This site has the infrastructure the personal site lacks — real procedure pages, a live blog, working navigation, proper title tags. But it is being actively sabotaged by discount offers on the homepage and an agency credit in the footer. The floor is higher. The ceiling is being suppressed."</p></div>
+      <table class="st-tbl">
+        <thead><tr><th>Dimension</th><th>Score</th><th style="width:180px">Visual</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>First Impressions & Trust</td><td><span class="bnum na">6.5/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:65%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">SOLID BASE</td></tr>
+          <tr><td>UI / UX</td><td><span class="bnum na">6.0/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:60%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">FUNCTIONAL</td></tr>
+          <tr><td>Information Architecture</td><td><span class="bnum ng">7.0/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfg2" style="width:70%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--green)">BEST SECTION</td></tr>
+          <tr><td>Lead Gen & Conversion</td><td><span class="bnum na">6.0/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:60%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">UNDERMINED</td></tr>
+          <tr><td>SEO & Discoverability</td><td><span class="bnum ng">7.0/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfg2" style="width:70%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--green)">STRONG</td></tr>
+          <tr><td>Performance & Speed</td><td><span class="bnum na">5.5/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfa2" style="width:55%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--amber)">NITROPACK ISSUE</td></tr>
+          <tr><td>Accessibility</td><td><span class="bnum nr">5.0/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfr2" style="width:50%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--red)">FAILURES</td></tr>
+          <tr><td>PR & Brand Perception</td><td><span class="bnum nr">4.0/10</span></td><td><div class="bar2"><div class="bt2"><div class="bf2 bfr2" style="width:40%"></div></div></div></td><td style="font-family:var(--fd);font-size:10px;font-weight:600;color:var(--red)">NOT PRESS-READY</td></tr>
+        </tbody>
+      </table>
+      <div class="comp-row">
+        <div class="comp-card better"><div class="comp-label">This site does better</div><p>Real procedure landing pages, live blog, working navigation, proper title tags, hospital affiliations visible, professional body memberships, International Patients page, Before/After gallery exists.</p></div>
+        <div class="comp-card worse"><div class="comp-label">Personal site does better</div><p>Lightbox-with-calendar booking flow is more sophisticated. The personal site's conversion entry point is stronger despite having weaker overall infrastructure.</p></div>
+      </div>
+    </div>
+
+    <div class="as" id="s1">
+      <div class="sh"><div><div class="se">01 / 08</div><div class="st">First Impressions & Trust Signals</div></div><div class="sp"><span class="n na">6.5</span><span class="d">/10</span></div></div>
+      <div class="fc fci"><div class="fl">5-Second Read</div><p>The site communicates "cosmetic surgery clinic in Mumbai" clearly and immediately. Competent, not premium. The procedure-specific carousel gives it more content authority than the personal site.</p></div>
+      <div class="fc fco"><div class="fl">Genuine Trust Strengths</div><ul>
+        <li>Hospital affiliations front and centre: Kokilaben Dhirubhai Ambani, Breach Candy, SBS Hospital. Tier-one Mumbai institutions — done right.</li>
+        <li>Professional body memberships visible: ASPS, AAPS, IAAPS — with linked logos.</li>
+        <li>Dr. Bhatia's credentials (MS, MCh) stated in his section heading — not buried as on the personal site.</li>
+        <li>"What to Expect at Consultation" sets expectations clearly and signals a professional clinical process.</li>
+        <li>Live blog with published articles signals active expertise and thought leadership.</li>
+        <li>Google Reviews ticker across Google, Practo, and Just Dial adds third-party verification.</li>
+        <li>Crisalix 3D with a specific ₹4,500 → ₹1,000 offer makes the technology concrete and accessible.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Trust Gaps</div><ul>
+        <li>No surgery count or years of experience on the homepage. The personal site mentions "2,000+ surgeries" — this site doesn't surface it at all.</li>
+        <li>Hero carousel auto-rotates — most users never see slides 2 or 3. Primary conversion message should not depend on rotation timing.</li>
+        <li>Google reviews shown as one-line scrolling ticker — no photos, no full stories, no procedure context.</li>
+        <li>"Video Testimonials" heading renders with no visible content — a key trust signal that silently fails on some devices.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s2">
+      <div class="sh"><div><div class="se">02 / 08</div><div class="st">UI / UX Evaluation</div></div><div class="sp"><span class="n na">6</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">Broken / Amateur</div><ul>
+        <li>All images loaded as empty SVG placeholders — NitroPack is aggressively deferring image loads. Any user on a slow connection sees a page of blank boxes. The LCP hero image must not be lazy-loaded.</li>
+        <li>Footer says <strong>"Powered by Mktg.Doctor"</strong> — an active hyperlink sending patients to a marketing agency's website from a medical clinic. Not acceptable.</li>
+        <li>Hero carousel renders "Previous slide / Next slide" as visible page text — ARIA labels broken out of CSS containment.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Navigation Issues</div><ul>
+        <li>Two separate service dropdowns — "Our Specialities" and "Other Services" — is internal taxonomy leaking into user-facing navigation. Patients don't know this distinction. Merge into a single "Procedures" mega-menu.</li>
+        <li>Top utility bar renders at very small estimated font size — likely unreadable on mobile.</li>
+        <li>"Crisalix 3D" appears in both the top bar and main navigation — duplicate nav entries.</li>
+      </ul></div>
+      <div class="fc fco"><div class="fl">What Works</div><ul>
+        <li>Sticky "Book Appointment" button in the header is always accessible. Correctly implemented.</li>
+        <li>Service iconography makes the services section scannable and visual.</li>
+        <li>"What to Expect at Consultation" two-column checklist is clean and functional.</li>
+        <li>Blog section with article thumbnails is a legitimate quality signal — more content depth than the personal site.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s3">
+      <div class="sh"><div><div class="se">03 / 08</div><div class="st">Information Architecture & Structure</div></div><div class="sp"><span class="n ng">7</span><span class="d">/10</span></div></div>
+      <div class="fc fco"><div class="fl">What This Site Gets Right (vs Personal Site)</div><ul>
+        <li>Individual procedure landing pages exist: <code>/rhinoplasty-in-mumbai/</code>, <code>/breast-augmentation-in-mumbai/</code>, <code>/tummy-tuck-in-mumbai/</code> — the most important structural SEO advantage.</li>
+        <li>A Before/After photo gallery exists as a navigable page.</li>
+        <li>A live blog with published articles — not a dead link.</li>
+        <li>A dedicated International Patients page — smart for a clinic with global clientele.</li>
+        <li>All navigation links resolve to real pages — no broken internal linking.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Structural Issues</div><ul>
+        <li>Homepage flow is disjointed with no clear narrative arc from hero to conversion.</li>
+        <li>The ₹5,000 discount offers section sits mid-homepage between 3D consultation and testimonials. Discounts at this placement feel desperate and erode the premium positioning built just above.</li>
+        <li>Services section presented three times on the homepage. Repetition reads as clutter.</li>
+        <li>Internal linking between procedure pages and blog does not appear systematic.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s4">
+      <div class="sh"><div><div class="se">04 / 08</div><div class="st">Lead Generation & Conversion</div></div><div class="sp"><span class="n na">6</span><span class="d">/10</span></div></div>
+      <div class="fc fco"><div class="fl">Conversion Strengths</div><ul>
+        <li>Sticky "Book Appointment" in header is always present and correctly placed.</li>
+        <li>Phone number visible in both utility bar and sticky header — two-touch access for high-intent mobile users.</li>
+        <li>Crisalix 3D at ₹1,000 is a low-barrier entry for consideration-phase patients not ready to commit to surgery.</li>
+        <li>Procedure-specific offer pages exist for paid campaign targeting.</li>
+      </ul></div>
+      <div class="fc fcc"><div class="fl">Critical: Discount Positioning Destroys Premium Brand</div><p>The ₹5,000 off promotions on the homepage directly undercut the premium, safety-first narrative built above. A patient who just read about Kokilaben affiliations and ASPS membership is now being offered a coupon. <strong>Premium cosmetic surgery brands do not discount publicly.</strong> Discount mechanics belong exclusively on dedicated campaign URLs, never on the main homepage.</p></div>
+      <div class="fc fcw"><div class="fl">Remaining Gaps</div><ul>
+        <li>WhatsApp opens a blank chat — same pre-fill problem as the personal site.</li>
+        <li>No email capture / newsletter / lead magnet anywhere on the site.</li>
+        <li>"Book Appointment" appears to go to a standard contact page — no lightbox-with-calendar. The clinic site has a less sophisticated booking flow than the personal brand site. This should be reversed.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s5">
+      <div class="sh"><div><div class="se">05 / 08</div><div class="st">SEO & Discoverability</div></div><div class="sp"><span class="n ng">7</span><span class="d">/10</span></div></div>
+      <div class="fc fco"><div class="fl">Clear Advantage Over the Personal Site</div><ul>
+        <li>Homepage title: "Best Cosmetic & Plastic Surgeon Andheri, Mumbai | Vanity Cosmetic Clinic" — keyword-rich and location-specific. Vastly better than "Tummy Tuck Surgery."</li>
+        <li>Procedure URLs follow the right pattern: <code>/rhinoplasty-in-mumbai/</code> — exactly the high-intent terms patients search.</li>
+        <li>Live blog has a mechanism for building topical authority over time.</li>
+        <li>All navigation links resolve to real pages — no broken internal linking.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">SEO Gaps Remaining</div><ul>
+        <li>NitroPack is deferring above-the-fold images — hurts Core Web Vitals LCP. Hero image must be eagerly loaded with a priority hint.</li>
+        <li>No Schema markup for LocalBusiness, Physician, or Review — Google rich snippets not being earned.</li>
+        <li>Blog has only ~2 published posts. For genuine topical authority, 20–40 well-optimised posts are needed.</li>
+        <li>Procedure pages likely have thin content — pages under 600–800 words struggle to rank competitively.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s6">
+      <div class="sh"><div><div class="se">06 / 08</div><div class="st">Performance & Page Speed</div></div><div class="sp"><span class="n na">5.5</span><span class="d">/10</span></div></div>
+      <div class="fc fcw"><div class="fl">NitroPack: Double-Edged Sword</div><ul>
+        <li>NitroPack is installed but configured too aggressively — deferring hero and above-the-fold content produces the opposite of intended effect.</li>
+        <li>Fix: exclude the LCP hero image from lazy loading in NitroPack settings. Defer everything below the fold only.</li>
+        <li>The JS-driven hero carousel adds render-blocking weight. A static hero with CSS transitions would be significantly lighter.</li>
+        <li>Crisalix 3D loads via external iframe on page init — a significant third-party JS liability. Should load only on user interaction.</li>
+      </ul></div>
+      <div class="fc fci"><div class="fl">Relative Assessment</div><p>This site is likely faster than the personal site in raw terms — no duplicate DOM, and NitroPack handles caching and compression. But aggressive deferral creates a poor perceived experience: a page of blank SVG boxes while scripts load is worse than a slightly slower page that loads complete.</p></div>
+    </div>
+
+    <div class="as" id="s7">
+      <div class="sh"><div><div class="se">07 / 08</div><div class="st">Accessibility</div></div><div class="sp"><span class="n nr">5</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">Critical Failures</div><ul>
+        <li>Email address obfuscated via Cloudflare email protection — invisible to screen readers and JS-disabled users. A compliance concern for a medical clinic.</li>
+        <li>All images served as empty SVG placeholders — if NitroPack JS fails, every image loses its alt text context.</li>
+        <li>"Previous slide / Next slide" carousel labels rendering as visible page text — accessibility markup added but not properly tested.</li>
+        <li>No skip-to-content link visible in source.</li>
+      </ul></div>
+      <div class="fc fcw"><div class="fl">Usability Concerns</div><ul>
+        <li>Top utility bar at estimated 11–12px likely fails WCAG AA contrast requirements.</li>
+        <li>Mega-menu navigation requires explicit ARIA roles and focus management for keyboard accessibility — rarely correctly implemented on WordPress-style builds.</li>
+      </ul></div>
+    </div>
+
+    <div class="as" id="s8">
+      <div class="sh"><div><div class="se">08 / 08</div><div class="st">PR & Brand Perception</div></div><div class="sp"><span class="n nr">4</span><span class="d">/10</span></div></div>
+      <div class="fc fcc"><div class="fl">The Discount Problem Is a PR Problem</div><p>A Vogue India editor or healthcare investor landing here would see: hospital affiliations and ASPS membership (strong) → immediately followed by "Save ₹5,000 on Breast Augmentation Surgery." The discount carousel destroys the premium signal the credentials section just built. No premium cosmetic surgery brand discounts publicly. The site cannot be PR-ready while the offers section remains on the homepage.</p></div>
+      <div class="fc fcw"><div class="fl">Brand Narrative Gaps</div><ul>
+        <li>"Powered by Mktg.Doctor" footer link is active and hyperlinked — worse than the personal site where it's plain text.</li>
+        <li>Clinic Instagram (<code>@vanitycosmeticclinic</code>) differs from doctor's (<code>@drsantoshbhatia</code>) — brand fragmentation that confuses press trying to tag the brand.</li>
+        <li>The doctor's global career narrative (New York, London, Toronto, Chicago, Miami) is not woven into the clinic brand story.</li>
+        <li>No press quotes, no "as seen in" strip, no downloadable media kit.</li>
+      </ul></div>
+      <div class="fc fco"><div class="fl">Relative to the Personal Site</div><p>This site is more PR-ready because it doesn't have German-language navigation and church template residue. Hospital affiliations, professional memberships, and published blog content are genuine PR assets. The floor is higher — but the ceiling is being actively suppressed by the discount offers and agency branding.</p></div>
+    </div>
+
+    <div class="as" id="s9">
+      <div class="sh"><div><div class="se">Action Plan</div><div class="st">Priority Actions</div></div></div>
+      <p style="font-size:13px;font-family:var(--fb);color:var(--mid);margin-bottom:20px">Specific to vanitycosmeticclinic.com. Cross-site analysis delivered separately.</p>
+      <div class="ph-label">🔴 Fix Immediately</div>
+      <div class="pg">
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Remove discount offers from homepage</div><div class="pwhy">₹5,000 off promotions between credentials and testimonials destroy premium positioning. Move to campaign landing pages only.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Remove "Powered by Mktg.Doctor" link</div><div class="pwhy">A live hyperlink to a marketing agency from a medical clinic footer is unprofessional and breaks brand ownership entirely.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Fix NitroPack hero image deferral</div><div class="pwhy">Hero and LCP image must not be lazy-loaded. Configure NitroPack to exclude above-the-fold images from deferral.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Fix "Previous / Next slide" text</div><div class="pwhy">Carousel ARIA labels are rendering as visible page text. Fix CSS containment. Looks broken to every visitor.</div></div>
+        <div class="pc ph"><div class="pi">Fix immediately</div><div class="ptit">Pre-fill all WhatsApp CTAs</div><div class="pwhy">All WhatsApp links open a blank chat. Add pre-populated message: "Hi, I'd like to book a consultation at Vanity Cosmetic Clinic."</div></div>
+      </div>
+      <div class="pm-label">🟡 Within 30 Days</div>
+      <div class="pg">
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Merge navigation service dropdowns</div><div class="pwhy">"Our Specialities" and "Other Services" is internal taxonomy in user-facing navigation. Merge into a single "Procedures" mega-menu.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Add Schema markup sitewide</div><div class="pwhy">LocalBusiness, Physician, and Review schema all missing. Unlocks Google rich snippets — free, high-visibility improvement.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Add quantified proof to homepage</div><div class="pwhy">2,000+ surgeries, 10+ years, global career cities — none on this homepage. A credibility bar above the fold transforms perception.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Upgrade booking to lightbox-calendar</div><div class="pwhy">The personal site has a lightbox-with-calendar; this site goes to a contact page. The clinic should have the more sophisticated flow.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Load Crisalix on interaction only</div><div class="pwhy">Crisalix 3D loads on page init adding third-party JS weight. Change to click-to-load: show preview image, load iframe on click.</div></div>
+        <div class="pc pm"><div class="pi">30 days</div><div class="ptit">Expand procedure page content</div><div class="pwhy">Procedure pages likely have thin content. Pages under 600–800 words struggle to rank competitively for high-value terms.</div></div>
+      </div>
+      <div class="pl-label">🟢 Long-Term</div>
+      <div class="pg">
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Build blog content to 30+ posts</div><div class="pwhy">Two published posts is not enough for topical authority. Target 3–4 posts per month covering procedure FAQs and recovery guides.</div></div>
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Build a real press / media page</div><div class="pwhy">The page exists but needs to function as a genuine journalist resource with high-res photos, doctor bio PDF, and media contact.</div></div>
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Fix Cloudflare email obfuscation</div><div class="pwhy">Contact email invisible to screen readers. Use a contact form with plain-text email shown for accessibility compliance.</div></div>
+        <div class="pc pl"><div class="pi">Long-term</div><div class="ptit">Unify social handles across both sites</div><div class="pwhy">This site: @vanitycosmeticclinic. Personal site: @drsantoshbhatia. Press and algorithm attribution suffer from the fragmented identity.</div></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const links=document.querySelectorAll('.sbk');
+const secs=document.querySelectorAll('.as');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));}});},{rootMargin:'-20% 0px -60% 0px'});
+secs.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
