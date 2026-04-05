@@ -25,12 +25,71 @@ html{scroll-behavior:smooth;font-size:15px}
 body{font-family:var(--fb);background:var(--surface);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
 
 /* HEADER */
-.bh{background:var(--white);border-bottom:1px solid var(--rule);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:200}
+.bh{
+  background:var(--white);
+  border-bottom:1px solid var(--rule);
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 48px;
+  position:sticky;
+  top:0;
+  z-index:200;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.bh-left{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  min-width:0;
+  flex-wrap:wrap;
+}
 .bl{display:flex;align-items:center;gap:10px;text-decoration:none}
 .blm{width:32px;height:32px;background:var(--ink);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .blm span{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-0.02em}
 .bw .name{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
 .bw .tag{font-size:10px;color:var(--muted);font-family:var(--fd);font-weight:400;letter-spacing:0.04em}
+
+.top-nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.top-nav-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 12px;
+  border-radius:99px;
+  border:1px solid var(--rule);
+  background:var(--white);
+  color:var(--mid);
+  text-decoration:none;
+  font-family:var(--fd);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  transition:all .16s ease;
+  white-space:nowrap;
+}
+.top-nav-link:hover{
+  color:var(--accent-dim);
+  border-color:rgba(232,197,71,.5);
+  background:var(--accent-pale);
+}
+.top-nav-link.active{
+  color:var(--accent-dim);
+  border-color:rgba(232,197,71,.55);
+  background:var(--accent-pale);
+}
+.top-nav-link.back-link{
+  color:var(--ink-3);
+}
+
 .hr{display:flex;align-items:center;gap:8px}
 .ht{font-size:10px;font-family:var(--fd);font-weight:500;padding:4px 10px;border-radius:99px;background:var(--surface-2);color:var(--mid);letter-spacing:0.05em}
 .hta{background:var(--accent-pale);color:var(--accent-dim)}
@@ -51,8 +110,8 @@ body{font-family:var(--fb);background:var(--surface);color:var(--ink);line-heigh
 .sv-r{color:#E07070}.sv-a{color:#DBA850}.sv-g{color:#6ACD96}
 
 /* LAYOUT */
-.pl{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 58px)}
-.sb{background:var(--white);border-right:1px solid var(--rule);padding:26px 0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto}
+.pl{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 78px)}
+.sb{background:var(--white);border-right:1px solid var(--rule);padding:26px 0;position:sticky;top:78px;height:calc(100vh - 78px);overflow-y:auto}
 .sb::-webkit-scrollbar{width:3px}
 .sb::-webkit-scrollbar-thumb{background:var(--rule)}
 .sbl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:14px 22px 6px;display:block}
@@ -72,7 +131,7 @@ body{font-family:var(--fb);background:var(--surface);color:var(--ink);line-heigh
 
 /* MAIN */
 .mc{padding:44px 56px 88px;max-width:860px}
-.as{margin-bottom:56px;scroll-margin-top:76px}
+.as{margin-bottom:56px;scroll-margin-top:110px}
 .se{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .st{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.2}
 .sh{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--rule);gap:16px;flex-wrap:wrap}
@@ -131,19 +190,55 @@ code{font-family:var(--fd);font-size:.78em;font-weight:500;background:rgba(0,0,0
 
 .corr{background:var(--green-bg);border:1px solid rgba(30,107,66,.2);border-radius:var(--rlg);padding:12px 17px;margin-bottom:13px;font-size:13px;font-family:var(--fb);color:#1A5C35;line-height:1.6}
 .rule{height:1px;background:var(--rule);margin:14px 0}
-@media(max-width:860px){.pl{grid-template-columns:1fr}.sb{display:none}.mc{padding:28px 20px 60px}.bh{padding:0 20px}.hero{padding:44px 20px 40px}}
+
+@media(max-width:1100px){
+  .bh{padding:10px 20px}
+  .pl{grid-template-columns:1fr}
+  .sb{display:none}
+  .mc{padding:28px 20px 60px}
+  .hero{padding:44px 20px 40px}
+}
+
+@media(max-width:760px){
+  .bh{
+    align-items:flex-start;
+  }
+  .bh-left{
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .top-nav{
+    width:100%;
+  }
+  .hr{
+    width:100%;
+    justify-content:flex-start;
+  }
+}
 </style>
 </head>
 <body>
 
 <header class="bh">
-  <a class="bl" href="#">
-    <div class="blm"><span>S</span></div>
-    <div class="bw">
-      <div class="name">Studio / Audit</div>
-      <div class="tag">digital strategy · growth</div>
-    </div>
-  </a>
+  <div class="bh-left">
+    <a class="bl" href="#">
+      <div class="blm"><span>S</span></div>
+      <div class="bw">
+        <div class="name">Studio / Audit</div>
+        <div class="tag">digital strategy · growth</div>
+      </div>
+    </a>
+
+    <nav class="top-nav" aria-label="Document navigation">
+      <a class="top-nav-link back-link" href="../">← Portal</a>
+      <a class="top-nav-link" href="../proposal/">Proposal</a>
+      <a class="top-nav-link active" href="../audit-1/">Audit 01</a>
+      <a class="top-nav-link" href="../audit-2/">Audit 02</a>
+    </nav>
+  </div>
+
   <div class="hr">
     <span class="ht">CONFIDENTIAL</span>
     <span class="ht hta">APRIL 2026</span>
@@ -379,4 +474,3 @@ secs.forEach(s=>obs.observe(s));
 </script>
 </body>
 </html>
-
