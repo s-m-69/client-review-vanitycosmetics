@@ -23,12 +23,74 @@ html{scroll-behavior:smooth;font-size:15px}
 body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
 
 /* HEADER */
-.bh{background:rgba(20,18,16,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:200}
+.bh{
+  background:rgba(20,18,16,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 48px;
+  position:sticky;
+  top:0;
+  z-index:200;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.bh-left{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  min-width:0;
+  flex-wrap:wrap;
+}
 .bl{display:flex;align-items:center;gap:10px;text-decoration:none}
 .blm{width:32px;height:32px;background:var(--accent);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .blm span{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-0.02em}
 .bw .name{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--white);letter-spacing:-.01em}
 .bw .tag{font-size:10px;color:rgba(255,255,255,.3);font-family:var(--fd);font-weight:400;letter-spacing:0.04em}
+
+.top-nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.top-nav-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 12px;
+  border-radius:99px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  color:rgba(255,255,255,.34);
+  text-decoration:none;
+  font-family:var(--fd);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  transition:all .16s ease;
+  white-space:nowrap;
+}
+.top-nav-link:hover{
+  color:var(--accent);
+  border-color:rgba(232,197,71,.28);
+  background:rgba(232,197,71,.08);
+}
+.top-nav-link.active{
+  color:var(--accent);
+  border-color:rgba(232,197,71,.3);
+  background:rgba(232,197,71,.10);
+}
+.top-nav-link.back-link{
+  color:rgba(255,255,255,.5);
+}
+.top-nav-link.back-link:hover{
+  color:var(--accent);
+}
 .hr{display:flex;align-items:center;gap:8px}
 .ht{font-size:10px;font-family:var(--fd);font-weight:500;padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.35);letter-spacing:0.05em}
 .hta{background:rgba(232,197,71,.12);color:var(--accent)}
@@ -55,7 +117,7 @@ body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-heigh
 
 /* LAYOUT */
 .pl{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
-.sb{background:rgba(20,18,16,.5);border-right:1px solid rgba(255,255,255,.06);padding:32px 0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto}
+.sb{background:rgba(20,18,16,.5);border-right:1px solid rgba(255,255,255,.06);padding:32px 0;position:sticky;top:79px;height:calc(100vh - 79px);overflow-y:auto}
 .sb::-webkit-scrollbar{width:3px}
 .sb::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08)}
 .sbl{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.18);padding:14px 22px 5px;display:block}
@@ -67,7 +129,7 @@ body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-heigh
 
 /* MAIN */
 .mc{padding:56px 60px 100px;max-width:860px}
-.as{margin-bottom:72px;scroll-margin-top:76px}
+.as{margin-bottom:72px;scroll-margin-top:110px}
 .se{font-family:var(--fd);font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:6px}
 .st{font-family:var(--fd);font-size:30px;font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-.02em}
 .sh{padding-bottom:18px;margin-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -152,21 +214,61 @@ body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-heigh
 .cta-block p{font-size:14px;font-family:var(--fb);font-weight:400;color:rgba(20,18,16,.55);margin-bottom:24px;line-height:1.6}
 .cta-btn{display:inline-block;background:var(--ink);color:var(--white);font-family:var(--fd);font-size:12px;font-weight:600;padding:12px 28px;border-radius:var(--rmd);text-decoration:none;letter-spacing:.03em}
 
-@media(max-width:900px){
-  .pl{grid-template-columns:1fr}.sb{display:none}
-  .mc{padding:32px 22px 60px}.bh{padding:0 22px}
+@media(max-width:1100px){
+  .bh{padding:10px 22px}
+  .pl{grid-template-columns:1fr}
+  .sb{display:none}
+  .mc{padding:32px 22px 60px}
   .cover{padding:48px 24px 44px;min-height:auto}
   .cover h1{font-size:38px}
   .two-col,.inv-row,.tier-grid{grid-template-columns:1fr}
   .phase-items{grid-template-columns:1fr}
+}
+
+@media(max-width:760px){
+  .bh{
+    align-items:flex-start;
+  }
+  .bh-left{
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .top-nav{
+    width:100%;
+  }
+  .hr{
+    width:100%;
+    justify-content:flex-start;
+  }
 }
 </style>
 </head>
 <body>
 
 <header class="bh">
-  <a class="bl" href="#"><div class="blm"><span>S</span></div><div class="bw"><div class="name">Studio / Proposal</div><div class="tag">digital strategy · growth</div></div></a>
-  <div class="hr"><span class="ht">CONFIDENTIAL</span><span class="ht hta">APRIL 2026</span></div>
+  <div class="bh-left">
+    <a class="bl" href="#">
+      <div class="blm"><span>S</span></div>
+      <div class="bw">
+        <div class="name">Studio / Proposal</div>
+        <div class="tag">digital strategy · growth</div>
+      </div>
+    </a>
+
+    <nav class="top-nav" aria-label="Document navigation">
+      <a class="top-nav-link back-link" href="../">← Portal</a>
+      <a class="top-nav-link active" href="../proposal/">Proposal</a>
+      <a class="top-nav-link" href="../audit-1/">Audit 01</a>
+      <a class="top-nav-link" href="../audit-2/">Audit 02</a>
+    </nav>
+  </div>
+
+  <div class="hr">
+    <span class="ht">CONFIDENTIAL</span>
+    <span class="ht hta">APRIL 2026</span>
+  </div>
 </header>
 
 <section class="cover">
@@ -374,8 +476,6 @@ body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-heigh
       </div>
     </div>
 
-    
-
     <div class="as" id="investment">
       <div class="sh"><div class="se">Pricing</div><div class="st">Website Redesign Investment</div></div>
       <div class="inv-row">
@@ -391,8 +491,8 @@ body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-heigh
         <li>All fees in INR. GST applicable as per standard rates</li>
         <li>Post-launch support window: 30 days from each site launch</li>
       </ul></div>
-            <div class="card" style="margin-bottom:24px"><div class="card-label">Optional add-on</div><p>If you would like continued support after launch, an optional monthly retainer can be added separately. This covers ongoing strategy, SEO monitoring, performance reviews, content guidance, and growth recommendations.</p></div>
-<div class="cta-block">
+      <div class="card" style="margin-bottom:24px"><div class="card-label">Optional add-on</div><p>If you would like continued support after launch, an optional monthly retainer can be added separately. This covers ongoing strategy, SEO monitoring, performance reviews, content guidance, and growth recommendations.</p></div>
+      <div class="cta-block">
         <h3>Ready to begin?</h3>
         <p>This proposal is valid for 30 days from the date of issue. The next step is a 45-minute strategy call to align on scope, timeline, and any adjustments to the brief.</p>
         <a class="cta-btn" href="mailto:shivamrmahtani@gmail.com">Schedule the strategy call →</a>
@@ -456,8 +556,6 @@ body{font-family:var(--fb);background:var(--ink-2);color:var(--white);line-heigh
       </div>
       <div class="card"><div class="card-label">Important note</div><p>This retainer is not required to proceed with the redesign project. It can be added only if and when you would like ongoing strategic involvement after both websites have launched.</p></div>
     </div>
-
-    
 
   </main>
 </div>
